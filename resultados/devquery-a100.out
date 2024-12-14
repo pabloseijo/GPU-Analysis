@@ -1,0 +1,20 @@
+slurmstepd: info: Setting TMPDIR to /scratch/9772723. Previous errors about TMPDIR can be discarded
+Numero de dispositivos = 1
+
+Dispositivo #0
+Device Name: NVIDIA A100-PCIE-40GB
+Compute Capability: 8.0
+Number of SMs: 108
+Max Threads per SM: 2048
+Max Grid Size: [2147483647, 65535, 65535]
+Max Threads per Block: 1024
+Max Block Size: [1024, 1024, 64]
+Registers per Block: 65536
+Registers per SM: 7077888
+Shared Memory per Block: 48.00 KB
+Shared Memory per SM: 5184.00 KB
+Global Memory: 39.39 GB
+Memory Clock Rate: 1215000000.00 Hz
+Memory Bus Width: 5120 bits
+Peak Memory Bandwidth: 1555.20 GiB/s
+Total CUDA Cores: 13824
