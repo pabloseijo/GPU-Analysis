@@ -4,4 +4,5 @@
 #SBATCH --mem 64G
 #SBATCH --gres gpu:a100
 #SBATCH -t 00:01:00
-srun vectorAdd ${1} ${2} ${3}
+#SBATCH -o vectorAdd-output.rxt
+srun vectorAdd ${1} ${2} ${3} > vectorAdd-output.txt

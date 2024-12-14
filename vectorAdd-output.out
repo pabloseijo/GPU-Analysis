@@ -1,0 +1,8 @@
+Suma de vectores de 10000000 elementos (1 reps), con 39063 bloques de 256 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 10000000: 41.83 ms
+GPU: Tiempo de reserva de memoria: 0.43 ms
+GPU: Tiempo de copia Host -> Device: 7.69 ms
+GPU: Tiempo de ejecución del kernel: 0.13 ms
+GPU: Tiempo de copia Device -> Host: 10.74 ms
+Suma correcta.
+Terminamos

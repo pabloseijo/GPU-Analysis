@@ -62,132 +62,111 @@ vectorAdd(const basetype *A, const basetype *B, basetype *C, int numElements)
  * Funcion main en el host
  * Parametros: nElementos threadsPerBlock nreps
  */
-int
-main(int argc, char *argv[])
-{
-    basetype *h_A=NULL, *h_B=NULL, *h_C=NULL, *h_C2=NULL;
-    basetype *d_A=NULL, *d_B=NULL, *d_C=NULL;
-    unsigned int numElements = 0, tpb = 0, nreps=1;
-    size_t size = 0;
-    // Valores para la medida de tiempos
+int main(int argc, char *argv[]) {
+    basetype *h_A = NULL, *h_B = NULL, *h_C = NULL, *h_C2 = NULL;
+    basetype *d_A = NULL, *d_B = NULL, *d_C = NULL;
+    unsigned int numElements = (argc > 1) ? atoi(argv[1]) : NELDEF;
+    unsigned int tpb = (argc > 2) ? atoi(argv[2]) : TPBDEF;
+    unsigned int nreps = (argc > 3) ? atoi(argv[3]) : NREPDEF;
+    size_t size = numElements * sizeof(basetype);
     struct timespec tstart, tend;
     double tint;
 
-    // Tamanho de los vectores
-    numElements = (argc > 1) ? atoi(argv[1]):NELDEF;
-    // Tamanho de los vectores en bytes
-    size = numElements * sizeof(basetype);
+    // CUDA eventos
+    cudaEvent_t start, stop;
+    float elapsedTime;
 
-    // Numero de threads por bloque
-    tpb = (argc > 2) ? atoi(argv[2]):TPBDEF;
-	// Comprueba si es superior al máximo
-	tpb = (tpb > MAX_TH_PER_BLOCK) ? TPBDEF:tpb;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
 
-    // Numero de repeticiones de la suma
-    nreps = (argc > 3) ? atoi(argv[3]):NREPDEF;
+    // Configuración del grid
+    dim3 threadsPerBlock(tpb);
+    dim3 blocksPerGrid((numElements + threadsPerBlock.x - 1) / threadsPerBlock.x);
 
-    // Caracteristicas del Grid
-   
-    dim3 threadsPerBlock( tpb );
-    // blocksPerGrid = ceil(numElements/threadsPerBlock)
-    dim3 blocksPerGrid( (numElements + threadsPerBlock.x - 1) / threadsPerBlock.x );
     printf("Suma de vectores de %u elementos (%u reps), con %u bloques de %u threads\n",
-      numElements, nreps, blocksPerGrid.x, threadsPerBlock.x);
+           numElements, nreps, blocksPerGrid.x, threadsPerBlock.x);
 
     // Reserva memoria en el host
-    h_A = (basetype *) malloc(size);
-    h_B = (basetype *) malloc(size);
-    h_C = (basetype *) malloc(size);
-    h_C2 = (basetype *) malloc(size);
+    h_A = (basetype *)malloc(size);
+    h_B = (basetype *)malloc(size);
+    h_C = (basetype *)malloc(size);
+    h_C2 = (basetype *)malloc(size);
 
-    // Comprueba errores
-    if (h_A == NULL || h_B == NULL || h_C == NULL)
-    {
-        fprintf(stderr, "Error reservando memoria en el host\n");
-        exit(EXIT_FAILURE);
+    // Inicialización de vectores
+    for (int i = 0; i < numElements; ++i) {
+        h_A[i] = rand() / (basetype)RAND_MAX;
+        h_B[i] = rand() / (basetype)RAND_MAX;
     }
 
-    // Inicializa los vectores en el host
-    for (int i = 0; i < numElements; ++i)
-    {
-        h_A[i] = rand()/(basetype)RAND_MAX;
-        h_B[i] = rand()/(basetype)RAND_MAX;
-    }
-
-    /*
-    * Hace la suma en el host
-    */
-    // Inicio tiempo
+    // --- CPU: Suma de vectores ---
     TSET(tstart);
-    // Suma los vectores en el host nreps veces
-    for(unsigned int r = 0; r < nreps; ++r)
-      h_vectorAdd( h_A, h_B, h_C, numElements );
-    // Fin tiempo
-    TSET( tend );
-    tint = TINT(tstart, tend);
-    printf( "HOST: Tiempo para hacer %u sumas de vectores de tamaño %u: %lf ms\n", nreps, numElements, tint );
-
-    /*
-    * Hace la suma en el dispositivo
-    */
-    // Inicio tiempo
-    TSET( tstart );
-    // Reserva memoria en la memoria global del dispositivo
-    checkError( cudaMalloc((void **) &d_A, size) );
-    checkError( cudaMalloc((void **) &d_B, size) );
-    checkError( cudaMalloc((void **) &d_C, size) );
-
-    // Copia los vectores h_A y h_B del host al dispositivo
-    checkError( cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice) );
-    checkError( cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice) );
-
-    // Lanza el kernel CUDA nreps veces
-    for(unsigned int r = 0; r < nreps; ++r) {
-      vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, numElements);
-
-      // Comprueba si hubo un error al el lanzamiento del kernel
-      // Notar que el lanzamiento del kernel es asíncrono por lo que
-      // este chequeo podría no detectar errores en la ejecución del mismo
-      checkError( cudaPeekAtLastError() );
-      // Sincroniza los hilos del kernel y chequea errores
-      // Este chequeo detecta posibles errores en la ejecución
-      // Notar que esta sincrinización puede degradar el rendimiento
-      checkError( cudaDeviceSynchronize() );
+    for (unsigned int r = 0; r < nreps; ++r) {
+        h_vectorAdd(h_A, h_B, h_C, numElements);
     }
-
-    // Copia el vector resultado del dispositivo al host
-    checkError( cudaMemcpy(h_C2, d_C, size, cudaMemcpyDeviceToHost) );
-
-    // Fin tiempo
-    TSET( tend );
-    // Calcula tiempo para la suma en el dispositivo
+    TSET(tend);
     tint = TINT(tstart, tend);
-    printf( "DEVICE: Tiempo para hacer %u sumas de vectores de tamaño %u: %lf ms\n", nreps, numElements, tint );
+    printf("HOST: Tiempo para %u sumas de vectores de tamaño %u: %.2f ms\n", nreps, numElements, tint);
 
+    // --- GPU: Medir tiempos por etapas ---
+    // 1. Reserva de memoria en GPU
+    cudaEventRecord(start, 0);
+    cudaMalloc((void **)&d_A, size);
+    cudaMalloc((void **)&d_B, size);
+    cudaMalloc((void **)&d_C, size);
+    cudaEventRecord(stop, 0);
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+    printf("GPU: Tiempo de reserva de memoria: %.2f ms\n", elapsedTime);
 
-    // Verifica que la suma es correcta
-    for (int i = 0; i < numElements; ++i)
-    {
-        if (fabs(h_C2[i] - h_C[i]) > 1e-5)
-        {
-            fprintf(stderr, "Verificacion de resultados falla en el elemento %d!\n", i);
+    // 2. Copia Host -> Device
+    cudaEventRecord(start, 0);
+    cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
+    cudaEventRecord(stop, 0);
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+    printf("GPU: Tiempo de copia Host -> Device: %.2f ms\n", elapsedTime);
+
+    // 3. Ejecución del kernel
+    cudaEventRecord(start, 0);
+    for (unsigned int r = 0; r < nreps; ++r) {
+        vectorAdd<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, numElements);
+    }
+    cudaDeviceSynchronize();
+    cudaEventRecord(stop, 0);
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+    printf("GPU: Tiempo de ejecución del kernel: %.2f ms\n", elapsedTime);
+
+    // 4. Copia Device -> Host
+    cudaEventRecord(start, 0);
+    cudaMemcpy(h_C2, d_C, size, cudaMemcpyDeviceToHost);
+    cudaEventRecord(stop, 0);
+    cudaEventSynchronize(stop);
+    cudaEventElapsedTime(&elapsedTime, start, stop);
+    printf("GPU: Tiempo de copia Device -> Host: %.2f ms\n", elapsedTime);
+
+    // Verificación de resultados
+    for (int i = 0; i < numElements; ++i) {
+        if (fabs(h_C2[i] - h_C[i]) > 1e-5) {
+            fprintf(stderr, "Error en la verificación del elemento %d!\n", i);
             exit(EXIT_FAILURE);
         }
     }
 
     printf("Suma correcta.\n");
 
-    // Liberamos la memoria del dispositivo
-    checkError( cudaFree(d_A) );
-    checkError( cudaFree(d_B) );
-    checkError( cudaFree(d_C) );
-
-    // Liberamos la memoria del host
+    // Liberar memoria
+    cudaFree(d_A);
+    cudaFree(d_B);
+    cudaFree(d_C);
     free(h_A);
     free(h_B);
     free(h_C);
+    free(h_C2);
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
 
     printf("Terminamos\n");
     return 0;
 }
-
