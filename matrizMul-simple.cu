@@ -184,6 +184,9 @@ check_memoria(const unsigned int numElem)
     printf("GiB ocupados en la GPU: %g GiB, memoria global %g GiB\n", bytes_arrays / gib, gmem / gib);
     if (gmem >= bytes_arrays)
         printf("GiB libres en la GPU: %g GiB\n", (gmem - bytes_arrays) / gib);
-    else
+    else {
         printf("Los arrays no caben en la memoria de la GPU\n");
+        exit(EXIT_FAILURE);
+    }
+        
 }
