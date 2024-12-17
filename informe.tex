@@ -1,0 +1,129 @@
+\documentclass[twocolumn,a4paper,12pt]{article}
+
+% Paquetes adicionales
+\usepackage[utf8]{inputenc} % Codificación UTF-8
+\usepackage{amsmath}        % Símbolos matemáticos
+\usepackage{graphicx}       % Incluir imágenes
+\usepackage{geometry}       % Configurar márgenes
+\usepackage{caption}        % Personalizar leyendas
+\usepackage{float}          % Control de posiciones
+\usepackage{booktabs}       % Tablas más bonitas
+\usepackage[spanish]{babel} % Fecha y texto en español
+\usepackage{datetime}       % Manejo de fechas
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% Configuración del formato de fecha
+\renewcommand{\today}{\number\day~de~\monthname[\month]~de~\number\year}
+
+% Título y autor
+\title{\textbf{Análisis de características y rendimiento de GPUs}}
+\author{
+\textbf{Jorge Otero Pailos y Pablo Seijo García} \\  % Nombre
+\small{Fundamentos de Sistemas Paralelos} \\ % Departamento
+\small{Universidad de Santiago de Compostela} \\ % Universidad o institución
+\small{\texttt{jorge.otero.pailos@rai.usc.es, pablo.garcia.seijo@rai.usc.es}} % Correo electrónico
+}
+\date{\today} % Fecha en español
+
+\begin{document}
+
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+    En esta práctica se analiza el rendimiento y las características de las GPUs NVIDIA A100 y T4 del CESGA utilizando CUDA. Se estudian sus propiedades arquitectónicas, el rendimiento en una suma de vectores y la optimización de un producto de matrices. Además, se comparan tiempos entre CPU y GPU, identificando etapas críticas y evaluando su eficiencia.
+
+    \textbf{Palabras clave:} CUDA, NVIDIA A100, NVIDIA T4, rendimiento de GPUs, CESGA.
+\end{abstract}
+\end{@twocolumnfalse}
+]
+
+
+\section{Introducción}
+Las unidades de procesamiento gráfico (GPUs) han revolucionado la computación de alto rendimiento debido a su capacidad para ejecutar un gran número de operaciones en paralelo. Originalmente diseñadas para el procesamiento de gráficos en videojuegos y aplicaciones visuales, las GPUs han evolucionado gracias a arquitecturas como CUDA de NVIDIA, permitiendo su uso en problemas de cómputo general (GPGPU, \textit{General Purpose GPU}). 
+
+La arquitectura CUDA (Compute Unified Device Architecture) proporciona un modelo de programación paralelo en el que un programa puede ejecutar miles de hilos simultáneamente, optimizando así tareas que requieren cálculos intensivos. Esto ha hecho que las GPUs sean fundamentales en campos como la inteligencia artificial, el aprendizaje profundo, la simulación científica, la minería de datos y la visualización de grandes volúmenes de información.
+
+En la presente práctica, se realiza un análisis exhaustivo de dos modelos de GPUs disponibles en el CESGA (Centro de Supercomputación de Galicia): la NVIDIA A100 y la NVIDIA T4. Estas dos GPUs presentan diferencias significativas tanto en su arquitectura como en sus características de rendimiento, lo que permite estudiar cómo estas particularidades afectan a diferentes aplicaciones de cómputo paralelo.
+
+El objetivo principal de esta práctica es el siguiente:
+\begin{itemize}
+    \item Estudiar las características arquitectónicas de las GPUs utilizando la función \texttt{cudaGetDeviceProperties} para obtener propiedades como el número de multiprocesadores (SMs), el tamaño de memoria compartida, el ancho de banda de memoria y el total de núcleos CUDA.
+    \item Evaluar y comparar el rendimiento de las GPUs mediante la ejecución de códigos CUDA simples, como la suma de vectores y el producto de matrices.
+    \item Optimizar los códigos utilizando técnicas avanzadas de programación CUDA, como la asignación eficiente de memoria y el ajuste del número de hilos por bloque.
+\end{itemize}
+
+El análisis incluye también la comparación de los tiempos de ejecución en CPU y GPU, identificando las etapas más costosas de los códigos ejecutados, como la transferencia de datos entre el host (CPU) y el dispositivo (GPU). Además, se explora el uso de memoria unificada para evaluar posibles mejoras en rendimiento.
+
+Finalmente, esta práctica proporciona una introducción al uso de librerías optimizadas como cuBLAS, que permite realizar operaciones matriciales de manera más eficiente. Se destaca así la importancia de aprovechar las capacidades específicas de cada GPU para lograr un rendimiento óptimo en aplicaciones científicas y de ingeniería.
+
+Con esta práctica, los estudiantes adquirirán las habilidades necesarias para programar y optimizar códigos en CUDA, comprender las limitaciones y ventajas de las GPUs y analizar su rendimiento en comparación con sistemas tradicionales basados en CPU.
+
+
+\section{Análisis de características de las GPUs}
+A continuación, se presenta una comparación entre las características de las GPUs NVIDIA A100 y T4, obtenidas mediante el programa \texttt{devquery.cu}:
+
+\begin{table}[H]
+    \centering
+    \caption{Comparación de características entre NVIDIA A100 y T4}
+    \label{tab:gpu_comparison}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Característica}            & \textbf{NVIDIA A100}        & \textbf{NVIDIA T4} \\
+        \midrule
+        Compute Capability        & 8.0                        & 7.5 \\
+        Número de SMs             & 108                        & 40 \\
+        Max Threads por SM         & 2048                       & 1536 \\
+        Tamaño de Grid            & [2.1B, 65K, 65K]           & [2.1B, 65K, 65K] \\
+        Max Threads por Bloque     & 1024                       & 1024 \\
+        Tamaño de Bloque          & [1024, 1024, 64]           & [1024, 1024, 64] \\
+        Registros por Bloque       & 65536                      & 65536 \\
+        Memoria Compartida (Bloque) & 48 KB                      & 64 KB \\
+        Memoria Compartida (SM)    & 5184 KB                    & 2048 KB \\
+        Memoria Global             & 39.39 GB                   & 15.73 GB \\
+        Frecuencia Memoria         & 1.215 GHz                  & 0.625 GHz \\
+        Ancho del Bus de Memoria   & 5120 bits                  & 256 bits \\
+        Pico de Ancho de Banda     & 1555.20 GiB/s              & 300 GiB/s \\
+        Total CUDA Cores           & 13824                      & 2560 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión}
+La tabla \ref{tab:gpu_comparison} resalta las diferencias clave entre las GPUs NVIDIA A100 y T4. Estas diferencias se centran principalmente en la arquitectura, capacidad de memoria, ancho de banda y el número de núcleos CUDA, lo que afecta directamente el rendimiento en tareas computacionales. A continuación, se analizan estos puntos en profundidad:
+
+\begin{itemize}
+    \item \textbf{Número de SMs y CUDA cores:} La A100 cuenta con 108 multiprocesadores (SMs) y un total de 13824 núcleos CUDA, frente a los 40 SMs y 2560 núcleos de la T4. Esta diferencia significa que la A100 puede manejar una mayor cantidad de hilos en paralelo, lo que resulta crucial para aplicaciones altamente paralelizables, como el entrenamiento de modelos de inteligencia artificial o simulaciones científicas a gran escala.
+
+    \item \textbf{Memoria global:} La memoria global disponible en la A100 es de 39.39 GB, más del doble de los 15.73 GB disponibles en la T4. Esto permite a la A100 gestionar conjuntos de datos significativamente más grandes y facilita la ejecución de aplicaciones que requieren un gran espacio de memoria, como el procesamiento de imágenes y análisis de big data.
+
+    \item \textbf{Ancho de banda de memoria:} La A100 presenta un ancho de banda pico de 1555.20 GiB/s, mientras que la T4 alcanza un máximo de 300 GiB/s. El alto ancho de banda de la A100 mejora considerablemente el rendimiento en aplicaciones que requieren un acceso intensivo a memoria, como multiplicación de matrices y operaciones de álgebra lineal en general. Esta diferencia es particularmente crítica en modelos de aprendizaje profundo, donde la transferencia de grandes volúmenes de datos entre la memoria y los núcleos de procesamiento es un cuello de botella importante.
+
+    \item \textbf{Memoria compartida:} La A100 dispone de 5184 KB de memoria compartida por multiprocesador, en comparación con los 2048 KB de la T4. La memoria compartida es un recurso clave en la optimización de aplicaciones CUDA, ya que permite la comunicación eficiente entre hilos dentro de un bloque. Al disponer de más memoria compartida, la A100 puede realizar cálculos intermedios más complejos sin recurrir a la memoria global, lo cual reduce la latencia.
+
+    \item \textbf{Compute Capability:} La A100 presenta una capacidad de cómputo de 8.0, basada en la arquitectura Ampere, mientras que la T4 tiene una capacidad de cómputo de 7.5 (arquitectura Turing). Las mejoras de Ampere incluyen optimizaciones en el procesamiento de instrucciones paralelas, mayor eficiencia energética y la introducción de Tensor Cores de tercera generación, que aceleran el cálculo de operaciones matriciales específicas.
+
+    \item \textbf{Aplicaciones prácticas:} Mientras que la T4 está optimizada para inferencia y cargas de trabajo moderadas, la A100 está diseñada específicamente para entrenamientos de modelos complejos de aprendizaje profundo y aplicaciones científicas que demandan un alto rendimiento. La diferencia en la capacidad de memoria y el número de núcleos CUDA hace que la A100 sea especialmente adecuada para simulaciones, análisis de datos y tareas de computación científica masiva.
+\end{itemize}
+
+\subsection{Conclusiones}
+El análisis comparativo entre las GPUs NVIDIA A100 y T4 demuestra que la A100 supera ampliamente a la T4 en términos de capacidad de cómputo, memoria y ancho de banda. Las ventajas observadas permiten concluir lo siguiente:
+
+\begin{itemize}
+    \item La \textbf{NVIDIA A100} es una GPU diseñada para aplicaciones de alto rendimiento. Su mayor número de multiprocesadores, ancho de banda de memoria y memoria compartida permiten ejecutar tareas intensivas de cómputo y memoria con una eficiencia considerable. Es ideal para entrenamientos de redes neuronales profundas, análisis de grandes volúmenes de datos y simulaciones científicas complejas.
+
+    \item La \textbf{NVIDIA T4}, aunque presenta un menor rendimiento en comparación con la A100, ofrece un consumo energético más eficiente y sigue siendo adecuada para tareas como inferencia en aprendizaje automático, visualización de datos y aplicaciones donde el uso de memoria es moderado. Su coste más reducido y menor consumo de energía la convierten en una opción rentable para entornos con restricciones de recursos.
+
+    \item Las diferencias en el \textbf{ancho de banda de memoria} y en la \textbf{cantidad de memoria global} son factores clave que limitan el rendimiento de la T4 en aplicaciones con grandes volúmenes de datos. Sin embargo, en tareas más simples o menos paralelizables, la T4 sigue ofreciendo un rendimiento competitivo.
+
+    \item La arquitectura Ampere de la A100 proporciona mejoras significativas en eficiencia y rendimiento computacional frente a la arquitectura Turing de la T4, particularmente en operaciones de tensor y cálculos matriciales optimizados mediante los Tensor Cores.
+
+\end{itemize}
+
+En conclusión, la elección entre la A100 y la T4 depende del tipo de aplicación y los recursos disponibles. La A100 es claramente superior para tareas de investigación y computación avanzada, mientras que la T4 es una alternativa eficiente y rentable para aplicaciones más livianas o de inferencia. Esta comparación resalta la importancia de seleccionar la GPU adecuada según las necesidades específicas de cada escenario.
+
+
+
+\end{document}
+
