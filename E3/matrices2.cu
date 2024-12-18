@@ -54,14 +54,14 @@
   * Cada thread computa un elemento de C
   */
  __global__ void
- matrizMul(const basetype *A, const basetype *B, basetype *C, unsigned int nFilasA, unsigned int columnasA, unisgned int columnasB)
+ matrizMul(const basetype *A, const basetype *B, basetype *C, unsigned int nFilasA, unsigned int nColumnasA, unsigned int nColumnasB)
  {
    // TODO: Calcula el indice de la fila de C y A
    int i = blockIdx.y * blockDim.y + threadIdx.y;
    // TODO Calcula el indice de la columna de C y B
    int j = blockIdx.x * blockDim.x + threadIdx.x;;
  
-   if ((i < matrizDim) && (j < matrizDim))
+   if ((i < nFilasA) && (j < nColumnasB))
    {
      basetype sum = (basetype) 0.0;
      for(unsigned int k = 0; k < matrizDim; ++k)
@@ -81,8 +81,8 @@
  {
    basetype *h_A=NULL, *h_B=NULL, *h_C=NULL, *h_C2=NULL;
    basetype *d_A=NULL, *d_B=NULL, *d_C=NULL;
-   unsigned int nFilasA = 1, nColumnasA = 1, nColumnasB tpbdim = 1, numElem = 1;
-   size_t size = 0;
+   unsigned int nFilasA = 1, nColumnasA = 1, nColumnasB  = 1, tpbdim = 1, numElem = 1;
+   size_t sizeA = 0, sizeB = 0, sizeC = 0;
    // Valores para la medida de tiempos
    struct timespec tstart, tend;
    double tint;
@@ -113,8 +113,7 @@
  
     printf("Multiplicación de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
     printf("Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
-        matrizDim, matrizDim, blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
- 
+
    h_A = (basetype *) malloc(size);
    h_B = (basetype *) malloc(size);
    h_C = (basetype *) malloc(size);
@@ -128,11 +127,8 @@
    }
  
    // Inicializa las matrices en el host
-   for (int i = 0; i < numElem; ++i)
-   {
-     h_A[i] = rand()/(basetype)RAND_MAX;
-     h_B[i] = rand()/(basetype)RAND_MAX;
-   }
+for (unsigned int i = 0; i < nFilasA * nColumnasA; ++i) h_A[i] = rand() / (basetype)RAND_MAX;
+for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (basetype)RAND_MAX;
  
    // Inicio tiempo
    TSET(tstart);
@@ -178,15 +174,13 @@
    printf( "DEVICE: Tiempo multiplicacion: %lf ms\n", tint );
  
  
-   // Verifica que la multiplicacion es correcta
-   for (unsigned int i = 0; i < numElem; ++i)
-   {
-     if (fabs(h_C2[i] - h_C[i]) > 1e-3)
-     {
-       fprintf(stderr, "Verificacion de resultados falla en el elemento %d!\n", i);
-       exit(EXIT_FAILURE);
-     }
-   }
+  // Verificación de resultados
+for (unsigned int i = 0; i < nFilasA * nColumnasB; ++i) {
+    if (fabs(h_C[i] - h_C2[i]) > 1e-3) {
+        fprintf(stderr, "Verificación de resultados falla en el elemento %d!\n", i);
+        exit(EXIT_FAILURE);
+    }
+}
  
    printf("Multiplicacion correcta.\n");
  
