@@ -81,7 +81,7 @@
  {
    basetype *h_A=NULL, *h_B=NULL, *h_C=NULL, *h_C2=NULL;
    basetype *d_A=NULL, *d_B=NULL, *d_C=NULL;
-   unsigned int nFilasA = 1, nColumnasA = 1, nColumnasB  = 1, tpbdim = 1, numElem = 1;
+   unsigned int nFilasA = 1, nColumnasA = 1, nColumnasB  = 1, tpbdim = 1;
    size_t sizeA = 0, sizeB = 0, sizeC = 0;
    // Valores para la medida de tiempos
    struct timespec tstart, tend;
@@ -114,10 +114,10 @@
     printf("Multiplicación de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
     printf("Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
 
-   h_A = (basetype *) malloc(size);
-   h_B = (basetype *) malloc(size);
-   h_C = (basetype *) malloc(size);
-   h_C2 = (basetype *) malloc(size);
+   h_A = (basetype *) malloc(sizeA);
+   h_B = (basetype *) malloc(sizeB);
+   h_C = (basetype *) malloc(sizeC);
+   h_C2 = (basetype *) malloc(sizeC);
  
    // Comprueba errores
    if (h_A == NULL || h_B == NULL || h_C == NULL)
@@ -134,7 +134,7 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
    TSET(tstart);
    //clock_gettime( CLOCK_MONOTONIC, &tstart );
    // Multiplica las matrices en el host
-   h_matrizMul( h_A, h_B, h_C, matrizDim );
+   h_matrizMul(h_A, h_B, h_C, nFilasA, nColumnasA, nColumnasB);
    // Fin tiempo
    TSET( tend );
    tint = TINT(tstart, tend);
