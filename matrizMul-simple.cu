@@ -70,28 +70,36 @@ __global__ void d_matrizMul(const basetype* A, const basetype* B, basetype* C,
  * Funcion main en el host
  * Parametros: nFilasA nColumnasA nColumnasB threadsPerBlock (las filas de B son triviales pues son iguales a las columnas de A)
  */
-int main(int argc, char* argv[]) {
+ int main(int argc, char* argv[]) {
     basetype* h_A = NULL, * h_B = NULL, * h_C = NULL, * h_C2 = NULL;
     basetype* d_A = NULL, * d_B = NULL, * d_C = NULL;
     unsigned int nFilasA = 1, nColumnasA = 1, nColumnasB = 1, tpbdim = 1;
     size_t sizeA = 0, sizeB = 0, sizeC = 0;
 
-    // Valores para la medida de tiempos
-    struct timespec tstart, tend;
-    double tint;
+    // Verifica argumentos
+    if (argc < 6) {
+        fprintf(stderr, "Uso: %s <nFilasA> <nColumnasA> <nColumnasB> <threadsPerBlock> <archivo_salida>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    // Archivo de salida
+    FILE* archivo_salida = fopen(argv[5], "w");
+    if (!archivo_salida) {
+        fprintf(stderr, "No se pudo abrir el archivo de salida\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Dimensiones de las matrices
-    nFilasA = (argc > 1) ? atoi(argv[1]) : MATDIMDEF;
-    nColumnasA = (argc > 2) ? atoi(argv[2]) : MATDIMDEF;
-    nColumnasB = (argc > 3) ? atoi(argv[3]) : MATDIMDEF;
+    nFilasA = atoi(argv[1]);
+    nColumnasA = atoi(argv[2]);
+    nColumnasB = atoi(argv[3]);
+    tpbdim = atoi(argv[4]);
 
     // Tamaños de las matrices
     sizeA = nFilasA * nColumnasA * sizeof(basetype);
     sizeB = nColumnasA * nColumnasB * sizeof(basetype);
     sizeC = nFilasA * nColumnasB * sizeof(basetype);
 
-    // Número de threads por bloque
-    tpbdim = (argc > 4) ? atoi(argv[4]) : TPBDIMDEF;
     tpbdim = (tpbdim > MAX_TH_PER_BLOCK_DIM) ? MAX_TH_PER_BLOCK_DIM : tpbdim;
 
     check_memoria(sizeA + sizeB + sizeC);
@@ -100,8 +108,8 @@ int main(int argc, char* argv[]) {
     dim3 threadsPerBlock(tpbdim, tpbdim, 1);
     dim3 blocksPerGrid((nColumnasB + tpbdim - 1) / tpbdim, (nFilasA + tpbdim - 1) / tpbdim, 1);
 
-    printf("Multiplicación de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
-    printf("Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
+    fprintf(archivo_salida, "Multiplicación de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
+    fprintf(archivo_salida, "Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
 
     // Reserva memoria en el host
     h_A = (basetype*)malloc(sizeA);
@@ -111,6 +119,7 @@ int main(int argc, char* argv[]) {
 
     if (!h_A || !h_B || !h_C || !h_C2) {
         fprintf(stderr, "Error reservando memoria en el host\n");
+        fclose(archivo_salida);
         exit(EXIT_FAILURE);
     }
 
@@ -119,11 +128,14 @@ int main(int argc, char* argv[]) {
     for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (basetype)RAND_MAX;
 
     // Multiplicación en el host
+    struct timespec tstart, tend;
+    double tint;
+
     TSET(tstart);
     h_matrizMul(h_A, h_B, h_C, nFilasA, nColumnasA, nColumnasB);
     TSET(tend);
     tint = TINT(tstart, tend);
-    printf("Host: Tiempo de multiplicación: %lf ms\n", tint);
+    fprintf(archivo_salida, "Host: Tiempo de multiplicación: %lf ms\n", tint);
 
     // Reserva memoria en el dispositivo
     checkError(cudaMalloc((void**)&d_A, sizeA));
@@ -136,12 +148,12 @@ int main(int argc, char* argv[]) {
 
     // Multiplicación en el device
     TSET(tstart);
-    d_matrizMul << <blocksPerGrid, threadsPerBlock >> > (d_A, d_B, d_C, nFilasA, nColumnasA, nColumnasB);
+    d_matrizMul<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, nFilasA, nColumnasA, nColumnasB);
     checkError(cudaPeekAtLastError());
     checkError(cudaDeviceSynchronize());
     TSET(tend);
     tint = TINT(tstart, tend);
-    printf("Device: Tiempo de multiplicación: %lf ms\n", tint);
+    fprintf(archivo_salida, "Device: Tiempo de multiplicación: %lf ms\n", tint);
 
     // Copia el resultado del device al host
     checkError(cudaMemcpy(h_C2, d_C, sizeC, cudaMemcpyDeviceToHost));
@@ -149,12 +161,12 @@ int main(int argc, char* argv[]) {
     // Verificación de resultados
     for (unsigned int i = 0; i < nFilasA * nColumnasB; ++i) {
         if (fabs(h_C[i] - h_C2[i]) > 1e-3) {
-            fprintf(stderr, "Verificación de resultados falla en el elemento %d!\n", i);
+            fprintf(archivo_salida, "Verificación de resultados falla en el elemento %d!\n", i);
+            fclose(archivo_salida);
             exit(EXIT_FAILURE);
         }
     }
-
-    printf("Multiplicación correcta.\n");
+    fprintf(archivo_salida, "Multiplicación correcta.\n");
 
     // Libera memoria
     free(h_A);
@@ -165,6 +177,7 @@ int main(int argc, char* argv[]) {
     cudaFree(d_B);
     cudaFree(d_C);
 
+    fclose(archivo_salida);
     return 0;
 }
 
