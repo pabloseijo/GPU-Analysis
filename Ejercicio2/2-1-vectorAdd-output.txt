@@ -1,0 +1,39 @@
+slurmstepd: info: Setting TMPDIR to /scratch/9827040. Previous errors about TMPDIR can be discarded
+Ejecutando con tamaño de vector: 1048576, threads por bloque: 256, repeticiones: 1
+Suma de vectores de 1048576 elementos (1 reps), con 4096 bloques de 256 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1048576: 4.24 ms
+GPU: Tiempo de reserva de memoria: 0.24 ms
+GPU: Tiempo de copia Host -> Device: 0.77 ms
+GPU: Tiempo de ejecución del kernel: 0.03 ms
+GPU: Tiempo de copia Device -> Host: 1.66 ms
+Suma correcta.
+Terminamos
+Ejecutando con tamaño de vector: 10485760, threads por bloque: 256, repeticiones: 1
+Suma de vectores de 10485760 elementos (1 reps), con 40960 bloques de 256 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 10485760: 42.68 ms
+GPU: Tiempo de reserva de memoria: 142.08 ms
+GPU: Tiempo de copia Host -> Device: 8.17 ms
+GPU: Tiempo de ejecución del kernel: 0.13 ms
+GPU: Tiempo de copia Device -> Host: 10.28 ms
+Suma correcta.
+Terminamos
+Ejecutando con tamaño de vector: 100000000, threads por bloque: 256, repeticiones: 1
+srun: Job 9827040 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9827040
+Suma de vectores de 100000000 elementos (1 reps), con 390625 bloques de 256 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 100000000: 405.33 ms
+GPU: Tiempo de reserva de memoria: 38.62 ms
+GPU: Tiempo de copia Host -> Device: 75.34 ms
+GPU: Tiempo de ejecución del kernel: 0.92 ms
+GPU: Tiempo de copia Device -> Host: 95.85 ms
+Suma correcta.
+Terminamos
+Ejecutando con tamaño de vector: 1000000000, threads por bloque: 256, repeticiones: 1
+Suma de vectores de 1000000000 elementos (1 reps), con 3906250 bloques de 256 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1000000000: 4393.12 ms
+GPU: Tiempo de reserva de memoria: 52.13 ms
+GPU: Tiempo de copia Host -> Device: 750.01 ms
+GPU: Tiempo de ejecución del kernel: 8.79 ms
+GPU: Tiempo de copia Device -> Host: 1993.83 ms
+Suma correcta.
+Terminamos

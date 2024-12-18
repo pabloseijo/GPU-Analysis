@@ -123,6 +123,217 @@ El análisis comparativo entre las GPUs NVIDIA A100 y T4 demuestra que la A100 s
 
 En conclusión, la elección entre la A100 y la T4 depende del tipo de aplicación y los recursos disponibles. La A100 es claramente superior para tareas de investigación y computación avanzada, mientras que la T4 es una alternativa eficiente y rentable para aplicaciones más livianas o de inferencia. Esta comparación resalta la importancia de seleccionar la GPU adecuada según las necesidades específicas de cada escenario.
 
+\section{Rendimiento de un código CUDA simple}
+
+\subsection{Resultados del Ejercicio 1}
+
+En este apartado se midieron los tiempos de ejecución en CPU y GPU para diferentes tamaños de vector, utilizando 256 threads por bloque y 1 repetición del lazo. La Tabla~\ref{tab:gpu_vs_cpu} presenta los resultados obtenidos.
+
+\begin{table}[H]
+    \centering
+    \caption{Comparación de tiempos entre CPU y GPU para distintos tamaños de vector}
+    \label{tab:gpu_vs_cpu}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Tamaño} & \textbf{CPU} & \textbf{Reserva} & \textbf{H-D} & \textbf{Kernel} & \textbf{D-H} & \textbf{Total GPU} \\
+        \midrule
+        $1 \times 10^6$ (1M) & 4.24 & 0.24 & 0.77 & 0.03 & 1.66 & 2.70 \\
+        $1 \times 10^7$ (10M) & 42.68 & 142.08 & 8.17 & 0.13 & 10.28 & 160.66 \\
+        $1 \times 10^8$ (100M) & 405.33 & 38.62 & 75.34 & 0.92 & 95.85 & 210.73 \\
+        $1 \times 10^9$ (1000M) & 4393.12 & 52.13 & 750.01 & 8.79 & 1993.83 & 2804.76 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión de los resultados}
+Los resultados muestran que:
+\begin{itemize}
+    \item El tiempo de la \textbf{CPU} crece linealmente con el tamaño del vector debido a su ejecución secuencial.
+    \item El tiempo del \textbf{kernel} en GPU es extremadamente bajo, destacando la capacidad de paralelización de la GPU. Por ejemplo, para $10^9$ elementos, el tiempo de ejecución fue de apenas 8.79 ms.
+    \item La \textbf{transferencia de memoria} entre el host y el dispositivo (H-D y D-H) domina el tiempo total de la GPU conforme aumenta el tamaño del vector. Para $10^9$ elementos, estos tiempos suman más de 2 segundos.
+    \item La reserva de memoria en la GPU es constante, salvo pequeñas variaciones en tamaños intermedios.
+\end{itemize}
+
+\subsubsection{Conclusiones}
+La GPU es significativamente más rápida que la CPU en la ejecución de la suma de vectores, especialmente para tamaños grandes. Sin embargo, los tiempos de transferencia de memoria limitan el rendimiento global. En aplicaciones prácticas, se recomienda minimizar las transferencias de datos mediante el uso de \textbf{memoria unificada} o ejecutando más cómputo directamente en la GPU.
+
+\subsection{Resultados del Ejercicio 2}
+
+En este apartado se midieron los tiempos de ejecución del kernel en GPU para un tamaño de vector de $10^9$ elementos, variando el número de threads por bloque. Los resultados obtenidos se muestran en la Tabla~\ref{tab:threads_per_block}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos GPU para diferentes valores de threads por bloque}
+    \label{tab:threads_per_block}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Threads/Bloque} & \textbf{H-D (ms)} & \textbf{Kernel (ms)} & \textbf{D-H (ms)} & \textbf{Total GPU (ms)} \\
+        \midrule
+        32   & 800.57  & 23.19  & 943.05  & 1866.81 \\
+        64   & 732.73  & 11.61  & 2086.00 & 2830.34 \\
+        128  & 749.52  & 8.81   & 1963.14 & 2721.47 \\
+        256  & 750.70  & 8.79   & 1962.52 & 2721.01 \\
+        512  & 763.15  & 8.80   & 1996.99 & 2768.94 \\
+        1024 & 756.56  & 8.86   & 939.57  & 1809.79 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsubsection{Discusión de los resultados}
+
+Al analizar los resultados de la Tabla~\ref{tab:threads_per_block}, se observan las siguientes tendencias:
+
+\begin{itemize}
+    \item El \textbf{tiempo de ejecución del kernel} disminuye drásticamente al aumentar el número de threads por bloque, pasando de 23.19 ms con 32 threads a 8.79 ms con 256 threads.
+    \item A partir de 256 threads, el tiempo del kernel se estabiliza, con valores cercanos a 8.8 ms. Esto sugiere que se alcanza una ocupación óptima de los recursos de la GPU.
+    \item La \textbf{transferencia de memoria (H-D y D-H)} sigue siendo el cuello de botella principal en el tiempo total de la GPU. En particular:
+    \begin{itemize}
+        \item El tiempo de copia Host → Device (H-D) permanece en torno a 750 ms.
+        \item El tiempo de copia Device → Host (D-H) varía, siendo 943 ms para 32 threads y aumentando a 1996 ms para 512 threads.
+    \end{itemize}
+    \item Para 1024 threads, aunque el tiempo del kernel sigue siendo bajo (8.86 ms), el tiempo total de la GPU mejora significativamente debido a una reducción del tiempo de transferencia D-H (939.57 ms).
+\end{itemize}
+
+\subsubsection{Conclusiones}
+
+El número óptimo de threads por bloque en este experimento es de 256 o 512, donde se logra una ejecución eficiente del kernel en GPU. Aumentar los threads más allá de este valor no reduce significativamente el tiempo del kernel, pero puede impactar las transferencias de datos.
+
+Para minimizar el tiempo total de ejecución, es fundamental reducir el impacto de las transferencias de memoria entre la CPU y la GPU, ya que estas etapas dominan el rendimiento global.
+
+\subsection{Resultados del Ejercicio 3}
+
+En este apartado se midieron los tiempos de ejecución del kernel en GPU para un tamaño de vector de $10^8$ elementos y un número fijo de threads por bloque igual a 256. El experimento consistió en variar el número de repeticiones del lazo, manteniendo constantes el tamaño del vector y la configuración de la GPU. Los resultados se muestran en la Tabla~\ref{tab:reps_performance}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos GPU para diferentes valores de repeticiones del lazo}
+    \label{tab:reps_performance}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Reps} & \textbf{CPU (ms)} & \textbf{Reserva (ms)} & \textbf{H-D (ms)} & \textbf{Kernel (ms)} & \textbf{D-H (ms)} & \textbf{Total GPU (ms)} \\
+        \midrule
+        1    & 401.99  & 177.84 & 74.90 & 0.91  & 92.23  & 345.88 \\
+        10   & 3653.77 & 95.86  & 74.10 & 8.81  & 95.75  & 274.52 \\
+        100  & 36165.60 & 187.58 & 70.95 & 87.48 & 95.63  & 441.64 \\
+        500  & 180717.11 & 118.30 & 75.55 & 438.42 & 94.28 & 726.55 \\
+        1000 & 361488.40 & 1.26   & 72.40 & 876.80 & 92.97 & 1043.43 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsubsection{Discusión de los resultados}
+
+La Tabla~\ref{tab:reps_performance} muestra cómo varía el tiempo total de ejecución en la GPU al aumentar el número de repeticiones del lazo:
+
+\begin{itemize}
+    \item El tiempo de ejecución del kernel aumenta de forma lineal con el número de repeticiones. Por ejemplo:
+    \begin{itemize}
+        \item Para 1 repetición, el tiempo del kernel es de 0.91 ms.
+        \item Para 1000 repeticiones, el tiempo del kernel aumenta a 876.80 ms, aproximadamente 1000 veces mayor.
+    \end{itemize}
+
+    \item Los tiempos de reserva de memoria y transferencias de memoria (Host → Device y Device → Host) se mantienen prácticamente constantes para cualquier número de repeticiones. En particular:
+    \begin{itemize}
+        \item Tiempo de copia Host → Device: Alrededor de 74 ms.
+        \item Tiempo de copia Device → Host: Alrededor de 92 ms.
+    \end{itemize}
+
+    \item El tiempo total en CPU crece de manera lineal y es considerablemente mayor que en GPU. Por ejemplo:
+    \begin{itemize}
+        \item Para 1000 repeticiones, el tiempo en CPU es de 361,488.40 ms (aproximadamente 6 minutos).
+        \item El tiempo total en GPU para las mismas repeticiones es de 1043.43 ms, demostrando una diferencia notable de rendimiento.
+    \end{itemize}
+
+\end{itemize}
+
+\subsubsection{Conclusiones}
+
+A partir de los resultados obtenidos, se puede concluir lo siguiente:
+
+\begin{itemize}
+    \item La GPU muestra un rendimiento superior en la ejecución del kernel respecto a la CPU, especialmente cuando el número de repeticiones del lazo es alto.
+    \item Los tiempos de transferencia de memoria entre la CPU y la GPU son constantes y se convierten en un cuello de botella para tareas con pocas repeticiones.
+    \item Para maximizar la eficiencia, es recomendable realizar más trabajo en la GPU (por ejemplo, mediante múltiples repeticiones del lazo) para amortizar el costo de las transferencias de memoria.
+    \item El tiempo de ejecución del kernel escala de manera lineal con el número de repeticiones, confirmando la consistencia del comportamiento del código.
+\end{itemize}
+
+\subsection{Resultados del Ejercicio 4}
+
+En este apartado se midieron de forma independiente los tiempos de ejecución correspondientes a las siguientes etapas: reserva de memoria en la GPU, copia de datos entre el host y la GPU, ejecución del kernel en la GPU y copia de resultados de la GPU al host. Los resultados obtenidos se muestran en la Tabla~\ref{tab:gpu_stage_times}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos de ejecución de cada etapa en la GPU}
+    \label{tab:gpu_stage_times}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Etapa}                       & \textbf{Tiempo (ms)} & \textbf{Observación} \\
+        \midrule
+        Reserva de memoria en GPU            & 1.25                & \textit{cudaMalloc} \\
+        Copia de datos Host $\rightarrow$ GPU & 74.67               & \textit{cudaMemcpy} \\
+        Ejecución del kernel en GPU          & 8.81                & Ejecución de \texttt{vectorAdd} \\
+        Copia de datos GPU $\rightarrow$ Host & 92.33               & \textit{cudaMemcpy} \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión de los resultados}
+
+La Tabla~\ref{tab:gpu_stage_times} muestra el tiempo desglosado de cada etapa durante la ejecución de la suma de vectores en la GPU. Las observaciones más relevantes son:
+
+\begin{itemize}
+    \item El \textbf{tiempo de reserva de memoria} en la GPU (\textit{cudaMalloc}) es muy pequeño (1.25 ms) en comparación con otras etapas.
+    \item Las \textbf{transferencias de memoria} entre el host y la GPU representan un costo significativo:
+    \begin{itemize}
+        \item Copia de datos del host a la GPU: 74.67 ms.
+        \item Copia de datos de la GPU al host: 92.33 ms.
+    \end{itemize}
+    Estas etapas son considerablemente más costosas que la ejecución del kernel.
+    \item La \textbf{ejecución del kernel} en la GPU es muy eficiente, con un tiempo de tan solo 8.81 ms. Esto resalta la capacidad de procesamiento paralelo de la GPU.
+\end{itemize}
+
+\subsection{Conclusiones}
+
+Los resultados muestran que la etapa más eficiente es la \textbf{ejecución del kernel}, mientras que las **transferencias de datos** entre CPU y GPU son el principal cuello de botella. Para aplicaciones más complejas, se podría considerar minimizar estas transferencias mediante estrategias como el uso de \textbf{memoria unificada} o la reutilización de datos en la GPU.
+
+\subsection{Resultados del Ejercicio 5}
+
+En este apartado se modificó el código para utilizar \textbf{memoria unificada} en lugar de realizar transferencias explícitas de datos entre CPU y GPU. La memoria unificada permite que ambos dispositivos compartan un espacio de direcciones común, simplificando la gestión de memoria. Los resultados obtenidos se presentan en la Tabla~\ref{tab:unified_memory}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos obtenidos con memoria unificada}
+    \label{tab:unified_memory}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Operación}           & \textbf{Tiempo (ms)}  & \textbf{Observación} \\
+        \midrule
+        Suma en CPU (10 reps)        & 3374.92              & Tiempo total para la CPU \\
+        Ejecución del kernel en GPU  & 133.19               & Sin transferencias explícitas \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión de los resultados}
+
+Al usar memoria unificada, se pueden observar los siguientes aspectos:
+
+\begin{itemize}
+    \item El \textbf{tiempo de ejecución del kernel} en la GPU fue de 133.19 ms para 10 repeticiones. Esto demuestra la eficiencia del cálculo paralelo en la GPU cuando se realiza una operación simple como la suma de vectores.
+    \item La suma en \textbf{CPU}, en comparación, requirió 3374.92 ms, siendo significativamente más lenta que la GPU.
+    \item Al eliminar las transferencias de memoria explícitas (\textit{Host → Device} y \textit{Device → Host}), se simplificó la ejecución del código y se redujo el tiempo de gestión.
+\end{itemize}
+
+El uso de memoria unificada simplifica el desarrollo de aplicaciones CUDA, especialmente cuando se ejecutan tareas de cómputo con grandes volúmenes de datos. Sin embargo, para aplicaciones donde las transferencias explícitas pueden optimizarse manualmente, podría ser necesario comparar ambos enfoques para encontrar la solución óptima.
+
+\subsection{Conclusiones}
+
+La memoria unificada permite un \textbf{flujo más sencillo} de programación al evitar transferencias manuales de datos. El rendimiento de la GPU sigue siendo notablemente superior al de la CPU, incluso con un manejo simplificado de la memoria. Para operaciones sencillas como la suma de vectores, la GPU demuestra ser una herramienta eficiente y rápida en aplicaciones de cómputo paralelo.
 
 
 \end{document}

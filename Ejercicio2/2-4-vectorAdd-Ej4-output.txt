@@ -1,0 +1,19 @@
+slurmstepd: info: Setting TMPDIR to /scratch/9831221. Previous errors about TMPDIR can be discarded
+Compilando el archivo vectorAddEj4.cu...
+vectorAddEj4.cu(45): warning: variable "tstart" was declared but never referenced
+
+vectorAddEj4.cu(45): warning: variable "tend" was declared but never referenced
+
+vectorAddEj4.cu(46): warning: variable "tint" was declared but never referenced
+
+Compilación exitosa.
+Ejecutando vectorAddEj4 con los siguientes parámetros:
+Tamaño del vector: 100000000, Threads por bloque: 256, Repeticiones: 10
+Suma de vectores de 100000000 elementos (10 reps), con 390625 bloques de 256 threads
+GPU: Tiempo de reserva de memoria: 1.25 ms
+GPU: Tiempo de copia Host -> Device: 74.67 ms
+GPU: Tiempo de ejecución del kernel: 8.81 ms
+GPU: Tiempo de copia Device -> Host: 92.33 ms
+Suma correcta.
+Terminamos
+Ejecución completada. Revisa vectorAdd-Ej4-output.txt para los resultados.

@@ -1,0 +1,11 @@
+slurmstepd: info: Setting TMPDIR to /scratch/9831092. Previous errors about TMPDIR can be discarded
+Compilando el archivo vectorAddEj4.cu...
+Compilación exitosa.
+Ejecutando vectorAddEj4 con los siguientes parámetros:
+Tamaño del vector: 100000000, Threads por bloque: 256, Repeticiones: 10
+Suma de vectores de 100000000 elementos (10 reps), con 390625 bloques de 256 threads
+HOST: Tiempo para 10 sumas de vectores de tamaño 100000000: 3374.92 ms
+GPU: Tiempo de ejecución del kernel: 133.19 ms
+Suma correcta.
+Terminamos
+Ejecución completada. Revisa vectorAddEj4-output.txt para los resultados.

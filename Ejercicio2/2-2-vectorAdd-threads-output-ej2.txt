@@ -1,0 +1,55 @@
+slurmstepd: info: Setting TMPDIR to /scratch/9827067. Previous errors about TMPDIR can be discarded
+Ejecutando con threads por bloque: 32, tamaño de vector: 1000000000, repeticiones: 1
+Suma de vectores de 1000000000 elementos (1 reps), con 31250000 bloques de 32 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1000000000: 4064.80 ms
+GPU: Tiempo de reserva de memoria: 123.02 ms
+GPU: Tiempo de copia Host -> Device: 800.57 ms
+GPU: Tiempo de ejecución del kernel: 23.19 ms
+GPU: Tiempo de copia Device -> Host: 943.05 ms
+Suma correcta.
+Terminamos
+Ejecutando con threads por bloque: 64, tamaño de vector: 1000000000, repeticiones: 1
+Suma de vectores de 1000000000 elementos (1 reps), con 15625000 bloques de 64 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1000000000: 4366.67 ms
+GPU: Tiempo de reserva de memoria: 10.06 ms
+GPU: Tiempo de copia Host -> Device: 732.73 ms
+GPU: Tiempo de ejecución del kernel: 11.61 ms
+GPU: Tiempo de copia Device -> Host: 2086.00 ms
+Suma correcta.
+Terminamos
+Ejecutando con threads por bloque: 128, tamaño de vector: 1000000000, repeticiones: 1
+Suma de vectores de 1000000000 elementos (1 reps), con 7812500 bloques de 128 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1000000000: 4358.39 ms
+GPU: Tiempo de reserva de memoria: 132.42 ms
+GPU: Tiempo de copia Host -> Device: 749.52 ms
+GPU: Tiempo de ejecución del kernel: 8.81 ms
+GPU: Tiempo de copia Device -> Host: 1963.14 ms
+Suma correcta.
+Terminamos
+Ejecutando con threads por bloque: 256, tamaño de vector: 1000000000, repeticiones: 1
+Suma de vectores de 1000000000 elementos (1 reps), con 3906250 bloques de 256 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1000000000: 4359.00 ms
+GPU: Tiempo de reserva de memoria: 10.00 ms
+GPU: Tiempo de copia Host -> Device: 750.70 ms
+GPU: Tiempo de ejecución del kernel: 8.79 ms
+GPU: Tiempo de copia Device -> Host: 1962.52 ms
+Suma correcta.
+Terminamos
+Ejecutando con threads por bloque: 512, tamaño de vector: 1000000000, repeticiones: 1
+Suma de vectores de 1000000000 elementos (1 reps), con 1953125 bloques de 512 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1000000000: 4329.24 ms
+GPU: Tiempo de reserva de memoria: 219.18 ms
+GPU: Tiempo de copia Host -> Device: 763.15 ms
+GPU: Tiempo de ejecución del kernel: 8.80 ms
+GPU: Tiempo de copia Device -> Host: 1996.99 ms
+Suma correcta.
+Terminamos
+Ejecutando con threads por bloque: 1024, tamaño de vector: 1000000000, repeticiones: 1
+Suma de vectores de 1000000000 elementos (1 reps), con 976563 bloques de 1024 threads
+HOST: Tiempo para 1 sumas de vectores de tamaño 1000000000: 4036.41 ms
+GPU: Tiempo de reserva de memoria: 104.80 ms
+GPU: Tiempo de copia Host -> Device: 756.56 ms
+GPU: Tiempo de ejecución del kernel: 8.86 ms
+GPU: Tiempo de copia Device -> Host: 939.57 ms
+Suma correcta.
+Terminamos
