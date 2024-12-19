@@ -1,4 +1,9 @@
+//#include "cuda_runtime.h"
+//#include "device_launch_parameters.h"
+
 #include <stdio.h>
+//#include <stdlib.h>
+//#include <math.h>
 #include <time.h>
 
 #define checkError(ans) { asserError((ans), __FILE__, __LINE__); }
@@ -131,10 +136,11 @@ int main(int argc, char* argv[]) {
 
     // Multiplicación en el device
     TSET(tstart);
-    d_matrizMul << <blocksPerGrid, threadsPerBlock >> > (d_A, d_B, d_C, nFilasA, nColumnasA, nColumnasB);
+    d_matrizMul <<<blocksPerGrid, threadsPerBlock >>> (d_A, d_B, d_C, nFilasA, nColumnasA, nColumnasB);
     checkError(cudaPeekAtLastError());
     checkError(cudaDeviceSynchronize());
     TSET(tend);
+   
     tint = TINT(tstart, tend);
     printf("Device: Tiempo de multiplicación: %lf ms\n", tint);
 
