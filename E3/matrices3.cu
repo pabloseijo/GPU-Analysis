@@ -71,6 +71,7 @@
  /**
   * Funcion main en el host
   * Parametros: nElementos threadsPerBlock
+  *Formato fichero salida: nFilasA nColumnasA nColumnasB tbpdim tCPU tGPU
   */
  int
  main(int argc, char *argv[])
@@ -91,6 +92,8 @@
 sizeA = nFilasA * nColumnasA * sizeof(basetype);
 sizeB = nColumnasA * nColumnasB * sizeof(basetype);
 sizeC = nFilasA * nColumnasB * sizeof(basetype);
+
+    FILE* fichero=fopen(argc>5 ? argv[5] : "resultado.txt","a");
  
    // Numero de threads por cada dimension  del bloque
    tpbdim = (argc > 4) ? atoi(argv[4]) : TPBDIMDEF;
@@ -107,6 +110,8 @@ sizeC = nFilasA * nColumnasB * sizeof(basetype);
  
    printf("Multiplicación de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
 printf("Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
+
+    fprintf(fichero, "%u %u %u %u",nFilasA,nColumnasA,nColumnasB, tbpdim);
 
    // Reserva memoria en el host
 h_A = (basetype*)malloc(sizeA);
@@ -135,6 +140,7 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
    TSET( tend );
    tint = TINT(tstart, tend);
    printf( "HOST: Tiempo multiplicacion: %lf ms\n", tint );
+   fprintf(fichero," %lf",tint);
  
    // Inicio tiempo multiplicacion GPU
    TSET( tstart );
@@ -168,6 +174,7 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
    // Calcula tiempo para la multiplicacion GPU
    tint = TINT(tstart, tend);
    printf( "DEVICE: Tiempo multiplicacion: %lf ms\n", tint );
+   fprintf(fichero, " %lf",tint);
  
  
    // Verifica que la multiplicacion es correcta
@@ -191,6 +198,10 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
    free(h_C);
  
    printf("Terminamos\n");
+
+    fprint(fichero,"\n");
+    fclose(fichero);
+
    return 0;
  }
  
