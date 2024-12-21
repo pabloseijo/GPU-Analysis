@@ -21,7 +21,7 @@
  // Numero maximo de threads por cada dimensión del bloque
  // Consideramos threadsPerBlock.x == threadsPerBlock.y
  //
- #define MAX_TH_PER_BLOCK_DIM 32
+ #define MAX_HILOS_TOTALES 1024
  
  // Tamanho por defecto de las matrices
  #define MATDIMDEF 1000
@@ -70,15 +70,15 @@
  
  /**
   * Funcion main en el host
-  * Parametros: nFilasA nColumnasA nColumnasB tbpdim ficheroSalida
-  *Formato fichero salida: nFilasA nColumnasA nColumnasB tbpdim tCPU tGPU
+  * Parametros: nFilasA nColumnasA nColumnasB threadsPerBlockX threadsPerBlockY archivo
+  *Formato fichero salida: nFilasA nColumnasA nColumnasB threadsPerBlockX threadsPerBlockY tCPU tGPU
   */
  int
  main(int argc, char *argv[])
  {
    basetype *h_A=NULL, *h_B=NULL, *h_C=NULL, *h_C2=NULL;
    basetype *d_A=NULL, *d_B=NULL, *d_C=NULL;
-   unsigned int nFilasA = 1, nColumnasA=1, nColumnasB=1, tpbdim = 1;
+   unsigned int nFilasA = 1, nColumnasA=1, nColumnasB=1, tpbdimX = 1, tpbdimY=1;
    size_t sizeA = 0, sizeB=0, sizeC=0;
    // Valores para la medida de tiempos
    struct timespec tstart, tend;
@@ -89,29 +89,42 @@
     nColumnasA = (argc > 2) ? atoi(argv[2]) : MATDIMDEF;
     nColumnasB = (argc > 3) ? atoi(argv[3]) : MATDIMDEF;
    // Tamaños de las matrices
-sizeA = nFilasA * nColumnasA * sizeof(basetype);
-sizeB = nColumnasA * nColumnasB * sizeof(basetype);
-sizeC = nFilasA * nColumnasB * sizeof(basetype);
+    sizeA = nFilasA * nColumnasA * sizeof(basetype);
+    sizeB = nColumnasA * nColumnasB * sizeof(basetype);
+    sizeC = nFilasA * nColumnasB * sizeof(basetype);
 
-    FILE* fichero=fopen(argc>5 ? argv[5] : "resultado.txt","a");
- 
-   // Numero de threads por cada dimension  del bloque
-   tpbdim = (argc > 4) ? atoi(argv[4]) : TPBDIMDEF;
+    // Numero de threads por cada dimension  del bloque
+   tpbdimX = (argc > 4) ? atoi(argv[4]) : TPBDIMDEF;
+
+   tpbdimX = (argc > 5) ? atoi(argv[5]) : TPBDIMDEF;
    // Comprueba si es superior al máximo
-   tpbdim = (tpbdim > MAX_TH_PER_BLOCK_DIM) ? MAX_TH_PER_BLOCK_DIM:tpbdim;
+   while(tpbdimX * tpbdimY > MAX_HILOS_TOTALES) {
+       int turno = 0;
+       if (turno % 2 == 0) {
+           tpbdimX /= 2;
+       }
+       else {
+           tpbdimY /= 2;
+       }
+   }
+  
+
+    FILE* fichero=fopen(argc>6 ? argv[6] : "resultado.txt","a");
+ 
+   
  
    check_memoria( sizeA+sizeB+sizeC );
  
    // Caracteristicas del Grid
    // Hilos por bloque: primer parámetro dim_x, segundo dim_y
-   dim3 threadsPerBlock( tpbdim, tpbdim, 1 );
+   dim3 threadsPerBlock( tpbdimX, tpbdimY, 1 );
    // TODO: Calcula el número de bloques en el Grid (bidimensional)
-   dim3 blocksPerGrid((nColumnasB + tpbdim - 1) / tpbdim, (nFilasA + tpbdim - 1) / tpbdim, 1);
+   dim3 blocksPerGrid((nColumnasB + tpbdimX - 1) / tpbdimX, (nFilasA + tpbdimY - 1) / tpbdimY, 1);
  
    printf("Multiplicación de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
-printf("Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
+    printf("Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
 
-    fprintf(fichero, "%u %u %u %u",nFilasA,nColumnasA,nColumnasB, tpbdim);
+    fprintf(fichero, "%u %u %u %u %u",nFilasA,nColumnasA,nColumnasB, tbpdimX, tpbdimY);
 
    // Reserva memoria en el host
 h_A = (basetype*)malloc(sizeA);
@@ -155,7 +168,7 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
    checkError( cudaMemcpy(d_B, h_B, sizeB, cudaMemcpyHostToDevice) );
  
    // TODO: Lanza el kernel CUDA
-   d_matrizMul <<<blocksPerGrid, threadsPerBlock >>> (d_A, d_B, d_C, nFilasA, nColumnasA, nColumnasB);
+   d_matrizMul <<< blocksPerGrid, threadsPerBlock >>> (d_A, d_B, d_C, nFilasA, nColumnasA, nColumnasB);
  
    // Comprueba si hubo un error al el lanzamiento del kernel
    // Notar que el lanzamiento del kernel es asíncrono por lo que
@@ -199,7 +212,7 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
  
    printf("Terminamos\n");
 
-    fprintf(fichero,"\n");
+    fprint(fichero,"\n");
     fclose(fichero);
 
    return 0;
