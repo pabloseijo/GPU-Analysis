@@ -70,7 +70,7 @@
  
  /**
   * Funcion main en el host
-  * Parametros: nElementos threadsPerBlock
+  * Parametros: nFilasA nColumnasA nColumnasB tbpdim ficheroSalida
   *Formato fichero salida: nFilasA nColumnasA nColumnasB tbpdim tCPU tGPU
   */
  int
