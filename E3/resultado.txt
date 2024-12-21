@@ -1,0 +1,2852 @@
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=256, Hilos=32
+256 256 256 32 55.155760 161.121963
+GiB ocupados en la GPU: 0.00292969 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3909 GiB
+Multiplicación de matrices (256x256) x (256x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 55.155760 ms
+DEVICE: Tiempo multiplicacion: 161.121963 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=256, Hilos=64
+256 256 256 32 55.219138 331.605902
+GiB ocupados en la GPU: 0.00292969 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3909 GiB
+Multiplicación de matrices (256x256) x (256x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 55.219138 ms
+DEVICE: Tiempo multiplicacion: 331.605902 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=256, Hilos=128
+256 256 256 32 55.266857 135.399909
+GiB ocupados en la GPU: 0.00292969 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3909 GiB
+Multiplicación de matrices (256x256) x (256x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 55.266857 ms
+DEVICE: Tiempo multiplicacion: 135.399909 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=256, Hilos=256
+256 256 256 32 55.181594 341.498981
+GiB ocupados en la GPU: 0.00292969 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3909 GiB
+Multiplicación de matrices (256x256) x (256x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 55.181594 ms
+DEVICE: Tiempo multiplicacion: 341.498981 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=256, Hilos=32
+256 256 512 32 120.885005 218.384550
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x256) x (256x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 120.885005 ms
+DEVICE: Tiempo multiplicacion: 218.384550 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=256, Hilos=64
+256 256 512 32 128.651799 304.403101
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x256) x (256x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 128.651799 ms
+DEVICE: Tiempo multiplicacion: 304.403101 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=256, Hilos=128
+256 256 512 32 112.700419 216.317160
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x256) x (256x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 112.700419 ms
+DEVICE: Tiempo multiplicacion: 216.317160 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=256, Hilos=256
+256 256 512 32 112.731744 299.133017
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x256) x (256x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 112.731744 ms
+DEVICE: Tiempo multiplicacion: 299.133017 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=256, Hilos=32
+256 256 1024 32 278.419799 339.687804
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x256) x (256x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 278.419799 ms
+DEVICE: Tiempo multiplicacion: 339.687804 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=256, Hilos=64
+256 256 1024 32 269.455392 150.090825
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x256) x (256x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 269.455392 ms
+DEVICE: Tiempo multiplicacion: 150.090825 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=256, Hilos=128
+256 256 1024 32 261.922799 126.575607
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x256) x (256x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 261.922799 ms
+DEVICE: Tiempo multiplicacion: 126.575607 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=256, Hilos=256
+256 256 1024 32 296.211885 151.683348
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x256) x (256x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 296.211885 ms
+DEVICE: Tiempo multiplicacion: 151.683348 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=256, Hilos=32
+256 256 2048 32 538.824154 331.130522
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x256) x (256x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 538.824154 ms
+DEVICE: Tiempo multiplicacion: 331.130522 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=256, Hilos=64
+256 256 2048 32 497.385152 338.259973
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x256) x (256x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 497.385152 ms
+DEVICE: Tiempo multiplicacion: 338.259973 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=256, Hilos=128
+256 256 2048 32 542.827374 339.037733
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x256) x (256x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 542.827374 ms
+DEVICE: Tiempo multiplicacion: 339.037733 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=256, Hilos=256
+256 256 2048 32 551.519931 127.589717
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x256) x (256x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 551.519931 ms
+DEVICE: Tiempo multiplicacion: 127.589717 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=512, Hilos=32
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+256 512 256 32 110.110939 114.832593
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x512) x (512x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.110939 ms
+DEVICE: Tiempo multiplicacion: 114.832593 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=512, Hilos=64
+256 512 256 32 110.112657 315.449846
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x512) x (512x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.112657 ms
+DEVICE: Tiempo multiplicacion: 315.449846 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=512, Hilos=128
+256 512 256 32 110.097304 273.423657
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x512) x (512x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.097304 ms
+DEVICE: Tiempo multiplicacion: 273.423657 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=512, Hilos=256
+256 512 256 32 110.097582 121.044561
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (256x512) x (512x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.097582 ms
+DEVICE: Tiempo multiplicacion: 121.044561 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=512, Hilos=32
+256 512 512 32 252.073287 127.650057
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (256x512) x (512x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 252.073287 ms
+DEVICE: Tiempo multiplicacion: 127.650057 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=512, Hilos=64
+256 512 512 32 269.165843 127.085425
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (256x512) x (512x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 269.165843 ms
+DEVICE: Tiempo multiplicacion: 127.085425 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=512, Hilos=128
+256 512 512 32 271.893078 276.392212
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (256x512) x (512x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 271.893078 ms
+DEVICE: Tiempo multiplicacion: 276.392212 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=512, Hilos=256
+256 512 512 32 265.375801 320.181432
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (256x512) x (512x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 265.375801 ms
+DEVICE: Tiempo multiplicacion: 320.181432 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=512, Hilos=32
+256 512 1024 32 627.699713 331.529661
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x512) x (512x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 627.699713 ms
+DEVICE: Tiempo multiplicacion: 331.529661 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=512, Hilos=64
+256 512 1024 32 576.695076 248.711241
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x512) x (512x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 576.695076 ms
+DEVICE: Tiempo multiplicacion: 248.711241 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=512, Hilos=128
+256 512 1024 32 639.986132 152.526129
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x512) x (512x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 639.986132 ms
+DEVICE: Tiempo multiplicacion: 152.526129 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=512, Hilos=256
+256 512 1024 32 642.324933 137.063486
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x512) x (512x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 642.324933 ms
+DEVICE: Tiempo multiplicacion: 137.063486 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=512, Hilos=32
+256 512 2048 32 1146.530198 247.422781
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x512) x (512x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1146.530198 ms
+DEVICE: Tiempo multiplicacion: 247.422781 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=512, Hilos=64
+256 512 2048 32 1191.908784 340.631214
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x512) x (512x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1191.908784 ms
+DEVICE: Tiempo multiplicacion: 340.631214 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=512, Hilos=128
+256 512 2048 32 1151.058555 130.342961
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x512) x (512x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1151.058555 ms
+DEVICE: Tiempo multiplicacion: 130.342961 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=512, Hilos=256
+256 512 2048 32 1209.755210 122.914529
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x512) x (512x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1209.755210 ms
+DEVICE: Tiempo multiplicacion: 122.914529 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=1024, Hilos=32
+256 1024 256 32 248.809326 122.050723
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x1024) x (1024x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 248.809326 ms
+DEVICE: Tiempo multiplicacion: 122.050723 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=1024, Hilos=64
+256 1024 256 32 244.176942 124.721789
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x1024) x (1024x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 244.176942 ms
+DEVICE: Tiempo multiplicacion: 124.721789 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=1024, Hilos=128
+256 1024 256 32 246.104046 121.194207
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x1024) x (1024x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 246.104046 ms
+DEVICE: Tiempo multiplicacion: 121.194207 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=1024, Hilos=256
+256 1024 256 32 228.322035 121.622504
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (256x1024) x (1024x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 228.322035 ms
+DEVICE: Tiempo multiplicacion: 121.622504 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=1024, Hilos=32
+256 1024 512 32 591.030298 134.528441
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x1024) x (1024x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 591.030298 ms
+DEVICE: Tiempo multiplicacion: 134.528441 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=1024, Hilos=64
+256 1024 512 32 587.289574 328.850991
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x1024) x (1024x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 587.289574 ms
+DEVICE: Tiempo multiplicacion: 328.850991 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=1024, Hilos=128
+256 1024 512 32 618.579280 194.295047
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x1024) x (1024x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 618.579280 ms
+DEVICE: Tiempo multiplicacion: 194.295047 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=1024, Hilos=256
+256 1024 512 32 614.021870 175.065063
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (256x1024) x (1024x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 614.021870 ms
+DEVICE: Tiempo multiplicacion: 175.065063 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=1024, Hilos=32
+256 1024 1024 32 1205.974939 193.795785
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (256x1024) x (1024x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1205.974939 ms
+DEVICE: Tiempo multiplicacion: 193.795785 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=1024, Hilos=64
+256 1024 1024 32 1225.597790 331.186323
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (256x1024) x (1024x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1225.597790 ms
+DEVICE: Tiempo multiplicacion: 331.186323 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=1024, Hilos=128
+256 1024 1024 32 1198.072388 341.321950
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (256x1024) x (1024x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1198.072388 ms
+DEVICE: Tiempo multiplicacion: 341.321950 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=1024, Hilos=256
+256 1024 1024 32 1214.654970 347.479256
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (256x1024) x (1024x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1214.654970 ms
+DEVICE: Tiempo multiplicacion: 347.479256 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=1024, Hilos=32
+256 1024 2048 32 2309.981063 274.155507
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x1024) x (1024x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2309.981063 ms
+DEVICE: Tiempo multiplicacion: 274.155507 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=1024, Hilos=64
+256 1024 2048 32 2431.083788 142.706108
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x1024) x (1024x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2431.083788 ms
+DEVICE: Tiempo multiplicacion: 142.706108 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=1024, Hilos=128
+256 1024 2048 32 2327.048348 212.047476
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x1024) x (1024x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2327.048348 ms
+DEVICE: Tiempo multiplicacion: 212.047476 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=1024, Hilos=256
+256 1024 2048 32 2277.990062 288.075705
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x1024) x (1024x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2277.990062 ms
+DEVICE: Tiempo multiplicacion: 288.075705 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=2048, Hilos=32
+256 2048 256 32 589.035962 300.215378
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x2048) x (2048x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 589.035962 ms
+DEVICE: Tiempo multiplicacion: 300.215378 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=2048, Hilos=64
+256 2048 256 32 567.414784 211.801084
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x2048) x (2048x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 567.414784 ms
+DEVICE: Tiempo multiplicacion: 211.801084 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=2048, Hilos=128
+256 2048 256 32 570.985632 219.263408
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x2048) x (2048x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 570.985632 ms
+DEVICE: Tiempo multiplicacion: 219.263408 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=256, ColumnasB=2048, Hilos=256
+256 2048 256 32 589.003375 191.979153
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (256x2048) x (2048x256) -> (256x256)
+Configuración: 8x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 589.003375 ms
+DEVICE: Tiempo multiplicacion: 191.979153 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=2048, Hilos=32
+256 2048 512 32 1219.887229 196.926486
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x2048) x (2048x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1219.887229 ms
+DEVICE: Tiempo multiplicacion: 196.926486 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=2048, Hilos=64
+256 2048 512 32 1216.562185 573.893409
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x2048) x (2048x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1216.562185 ms
+DEVICE: Tiempo multiplicacion: 573.893409 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=2048, Hilos=128
+256 2048 512 32 1202.773793 572.664253
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x2048) x (2048x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1202.773793 ms
+DEVICE: Tiempo multiplicacion: 572.664253 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=512, ColumnasB=2048, Hilos=256
+256 2048 512 32 1245.697808 554.851108
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (256x2048) x (2048x512) -> (256x512)
+Configuración: 16x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1245.697808 ms
+DEVICE: Tiempo multiplicacion: 554.851108 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=2048, Hilos=32
+256 2048 1024 32 2318.753070 415.685306
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x2048) x (2048x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2318.753070 ms
+DEVICE: Tiempo multiplicacion: 415.685306 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=2048, Hilos=64
+256 2048 1024 32 2495.432196 335.737021
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x2048) x (2048x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2495.432196 ms
+DEVICE: Tiempo multiplicacion: 335.737021 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=2048, Hilos=128
+256 2048 1024 32 2290.303590 121.219133
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x2048) x (2048x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2290.303590 ms
+DEVICE: Tiempo multiplicacion: 121.219133 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=1024, ColumnasB=2048, Hilos=256
+256 2048 1024 32 2422.651391 290.768396
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (256x2048) x (2048x1024) -> (256x1024)
+Configuración: 32x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2422.651391 ms
+DEVICE: Tiempo multiplicacion: 290.768396 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=2048, Hilos=32
+256 2048 2048 32 4756.645616 138.716604
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (256x2048) x (2048x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4756.645616 ms
+DEVICE: Tiempo multiplicacion: 138.716604 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=2048, Hilos=64
+256 2048 2048 32 4616.783325 332.172686
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (256x2048) x (2048x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4616.783325 ms
+DEVICE: Tiempo multiplicacion: 332.172686 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=2048, Hilos=128
+256 2048 2048 32 4567.528406 327.316572
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (256x2048) x (2048x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4567.528406 ms
+DEVICE: Tiempo multiplicacion: 327.316572 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=256, ColumnasA=2048, ColumnasB=2048, Hilos=256
+256 2048 2048 32 4566.319013 291.940003
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (256x2048) x (2048x2048) -> (256x2048)
+Configuración: 64x8 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4566.319013 ms
+DEVICE: Tiempo multiplicacion: 291.940003 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=256, Hilos=32
+512 256 256 32 110.342129 328.216439
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (512x256) x (256x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.342129 ms
+DEVICE: Tiempo multiplicacion: 328.216439 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=256, Hilos=64
+512 256 256 32 110.445641 273.416672
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (512x256) x (256x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.445641 ms
+DEVICE: Tiempo multiplicacion: 273.416672 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=256, Hilos=128
+512 256 256 32 110.462705 356.546769
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (512x256) x (256x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.462705 ms
+DEVICE: Tiempo multiplicacion: 356.546769 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=256, Hilos=256
+512 256 256 32 110.432889 276.400574
+GiB ocupados en la GPU: 0.00488281 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.389 GiB
+Multiplicación de matrices (512x256) x (256x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 110.432889 ms
+DEVICE: Tiempo multiplicacion: 276.400574 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=256, Hilos=32
+512 256 512 32 225.439824 259.541805
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x256) x (256x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 225.439824 ms
+DEVICE: Tiempo multiplicacion: 259.541805 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=256, Hilos=64
+512 256 512 32 225.480017 378.289119
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x256) x (256x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 225.480017 ms
+DEVICE: Tiempo multiplicacion: 378.289119 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=256, Hilos=128
+512 256 512 32 225.401980 302.189868
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x256) x (256x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 225.401980 ms
+DEVICE: Tiempo multiplicacion: 302.189868 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=256, Hilos=256
+512 256 512 32 225.497393 116.686484
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x256) x (256x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 225.497393 ms
+DEVICE: Tiempo multiplicacion: 116.686484 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=256, Hilos=32
+512 256 1024 32 542.742077 350.103893
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x256) x (256x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 542.742077 ms
+DEVICE: Tiempo multiplicacion: 350.103893 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=256, Hilos=64
+512 256 1024 32 505.656542 348.814361
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x256) x (256x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 505.656542 ms
+DEVICE: Tiempo multiplicacion: 348.814361 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=256, Hilos=128
+512 256 1024 32 456.274288 355.212472
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x256) x (256x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 456.274288 ms
+DEVICE: Tiempo multiplicacion: 355.212472 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=256, Hilos=256
+512 256 1024 32 515.299935 325.896918
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x256) x (256x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 515.299935 ms
+DEVICE: Tiempo multiplicacion: 325.896918 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=256, Hilos=32
+512 256 2048 32 1022.685464 121.536440
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x256) x (256x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1022.685464 ms
+DEVICE: Tiempo multiplicacion: 121.536440 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=256, Hilos=64
+512 256 2048 32 1058.921811 115.244195
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x256) x (256x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1058.921811 ms
+DEVICE: Tiempo multiplicacion: 115.244195 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=256, Hilos=128
+512 256 2048 32 1118.086597 345.488544
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x256) x (256x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1118.086597 ms
+DEVICE: Tiempo multiplicacion: 345.488544 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=256, Hilos=256
+512 256 2048 32 1103.565964 118.012257
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x256) x (256x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1103.565964 ms
+DEVICE: Tiempo multiplicacion: 118.012257 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=512, Hilos=32
+512 512 256 32 220.218453 287.763401
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x512) x (512x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.218453 ms
+DEVICE: Tiempo multiplicacion: 287.763401 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=512, Hilos=64
+512 512 256 32 220.226641 358.560309
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x512) x (512x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.226641 ms
+DEVICE: Tiempo multiplicacion: 358.560309 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=512, Hilos=128
+512 512 256 32 220.070371 363.639721
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x512) x (512x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.070371 ms
+DEVICE: Tiempo multiplicacion: 363.639721 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=512, Hilos=256
+512 512 256 32 220.208125 328.440648
+GiB ocupados en la GPU: 0.0078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.386 GiB
+Multiplicación de matrices (512x512) x (512x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.208125 ms
+DEVICE: Tiempo multiplicacion: 328.440648 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=512, Hilos=32
+512 512 512 32 508.230442 123.552738
+GiB ocupados en la GPU: 0.0117188 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3821 GiB
+Multiplicación de matrices (512x512) x (512x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 508.230442 ms
+DEVICE: Tiempo multiplicacion: 123.552738 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=512, Hilos=64
+512 512 512 32 511.877000 118.009384
+GiB ocupados en la GPU: 0.0117188 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3821 GiB
+Multiplicación de matrices (512x512) x (512x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 511.877000 ms
+DEVICE: Tiempo multiplicacion: 118.009384 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=512, Hilos=128
+512 512 512 32 519.644280 119.161841
+GiB ocupados en la GPU: 0.0117188 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3821 GiB
+Multiplicación de matrices (512x512) x (512x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 519.644280 ms
+DEVICE: Tiempo multiplicacion: 119.161841 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=512, Hilos=256
+512 512 512 32 500.237223 343.503447
+GiB ocupados en la GPU: 0.0117188 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3821 GiB
+Multiplicación de matrices (512x512) x (512x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 500.237223 ms
+DEVICE: Tiempo multiplicacion: 343.503447 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=512, Hilos=32
+512 512 1024 32 1204.674047 185.731576
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x512) x (512x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1204.674047 ms
+DEVICE: Tiempo multiplicacion: 185.731576 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=512, Hilos=64
+512 512 1024 32 1200.175522 364.174346
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x512) x (512x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1200.175522 ms
+DEVICE: Tiempo multiplicacion: 364.174346 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=512, Hilos=128
+512 512 1024 32 1259.757450 365.254685
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x512) x (512x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1259.757450 ms
+DEVICE: Tiempo multiplicacion: 365.254685 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=512, Hilos=256
+512 512 1024 32 1250.324353 360.247226
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x512) x (512x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1250.324353 ms
+DEVICE: Tiempo multiplicacion: 360.247226 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=512, Hilos=32
+512 512 2048 32 2351.022049 236.770918
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x512) x (512x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2351.022049 ms
+DEVICE: Tiempo multiplicacion: 236.770918 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=512, Hilos=64
+512 512 2048 32 2289.983555 311.859728
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x512) x (512x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2289.983555 ms
+DEVICE: Tiempo multiplicacion: 311.859728 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=512, Hilos=128
+512 512 2048 32 2354.189466 236.384386
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x512) x (512x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2354.189466 ms
+DEVICE: Tiempo multiplicacion: 236.384386 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=512, Hilos=256
+512 512 2048 32 2297.724855 289.506452
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x512) x (512x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2297.724855 ms
+DEVICE: Tiempo multiplicacion: 289.506452 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=1024, Hilos=32
+512 1024 256 32 504.451012 325.245963
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x1024) x (1024x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 504.451012 ms
+DEVICE: Tiempo multiplicacion: 325.245963 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=1024, Hilos=64
+512 1024 256 32 455.306870 331.432451
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x1024) x (1024x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 455.306870 ms
+DEVICE: Tiempo multiplicacion: 331.432451 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=1024, Hilos=128
+512 1024 256 32 491.022629 325.735136
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x1024) x (1024x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 491.022629 ms
+DEVICE: Tiempo multiplicacion: 325.735136 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=1024, Hilos=256
+512 1024 256 32 476.506143 327.040994
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (512x1024) x (1024x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 476.506143 ms
+DEVICE: Tiempo multiplicacion: 327.040994 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=1024, Hilos=32
+512 1024 512 32 1187.766705 273.103666
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x1024) x (1024x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1187.766705 ms
+DEVICE: Tiempo multiplicacion: 273.103666 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=1024, Hilos=64
+512 1024 512 32 1202.387030 354.659186
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x1024) x (1024x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1202.387030 ms
+DEVICE: Tiempo multiplicacion: 354.659186 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=1024, Hilos=128
+512 1024 512 32 1173.284589 336.868490
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x1024) x (1024x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1173.284589 ms
+DEVICE: Tiempo multiplicacion: 336.868490 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=1024, Hilos=256
+512 1024 512 32 1159.998997 119.933807
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (512x1024) x (1024x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1159.998997 ms
+DEVICE: Tiempo multiplicacion: 119.933807 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=1024, Hilos=32
+512 1024 1024 32 2374.166440 144.915836
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (512x1024) x (1024x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2374.166440 ms
+DEVICE: Tiempo multiplicacion: 144.915836 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=1024, Hilos=64
+512 1024 1024 32 2326.851051 119.920491
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (512x1024) x (1024x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2326.851051 ms
+DEVICE: Tiempo multiplicacion: 119.920491 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=1024, Hilos=128
+512 1024 1024 32 2388.650646 304.896075
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (512x1024) x (1024x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2388.650646 ms
+DEVICE: Tiempo multiplicacion: 304.896075 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=1024, Hilos=256
+512 1024 1024 32 2634.532536 145.204723
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (512x1024) x (1024x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2634.532536 ms
+DEVICE: Tiempo multiplicacion: 145.204723 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=1024, Hilos=32
+512 1024 2048 32 4623.813197 130.456229
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x1024) x (1024x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4623.813197 ms
+DEVICE: Tiempo multiplicacion: 130.456229 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=1024, Hilos=64
+512 1024 2048 32 4735.875669 123.414185
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x1024) x (1024x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4735.875669 ms
+DEVICE: Tiempo multiplicacion: 123.414185 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=1024, Hilos=128
+512 1024 2048 32 4591.154366 127.507039
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x1024) x (1024x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4591.154366 ms
+DEVICE: Tiempo multiplicacion: 127.507039 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=1024, Hilos=256
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+512 1024 2048 32 4634.983458 121.486232
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x1024) x (1024x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4634.983458 ms
+DEVICE: Tiempo multiplicacion: 121.486232 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=2048, Hilos=32
+512 2048 256 32 1139.949402 118.664106
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x2048) x (2048x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1139.949402 ms
+DEVICE: Tiempo multiplicacion: 118.664106 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=2048, Hilos=64
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+512 2048 256 32 1214.120583 124.855447
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x2048) x (2048x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1214.120583 ms
+DEVICE: Tiempo multiplicacion: 124.855447 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=2048, Hilos=128
+512 2048 256 32 1174.067568 123.075212
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x2048) x (2048x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1174.067568 ms
+DEVICE: Tiempo multiplicacion: 123.075212 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=256, ColumnasB=2048, Hilos=256
+512 2048 256 32 1177.488497 122.034573
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (512x2048) x (2048x256) -> (512x256)
+Configuración: 8x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1177.488497 ms
+DEVICE: Tiempo multiplicacion: 122.034573 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=2048, Hilos=32
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+512 2048 512 32 2425.977722 512.068115
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x2048) x (2048x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2425.977722 ms
+DEVICE: Tiempo multiplicacion: 512.068115 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=2048, Hilos=64
+512 2048 512 32 2463.144367 456.582202
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x2048) x (2048x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2463.144367 ms
+DEVICE: Tiempo multiplicacion: 456.582202 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=2048, Hilos=128
+512 2048 512 32 2435.794056 461.061158
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x2048) x (2048x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2435.794056 ms
+DEVICE: Tiempo multiplicacion: 461.061158 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=512, ColumnasB=2048, Hilos=256
+512 2048 512 32 2418.560307 463.521288
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (512x2048) x (2048x512) -> (512x512)
+Configuración: 16x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2418.560307 ms
+DEVICE: Tiempo multiplicacion: 463.521288 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=2048, Hilos=32
+512 2048 1024 32 4644.279949 328.358181
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x2048) x (2048x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4644.279949 ms
+DEVICE: Tiempo multiplicacion: 328.358181 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=2048, Hilos=64
+512 2048 1024 32 4712.598683 128.301759
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x2048) x (2048x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4712.598683 ms
+DEVICE: Tiempo multiplicacion: 128.301759 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=2048, Hilos=128
+512 2048 1024 32 4671.153022 117.189749
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x2048) x (2048x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4671.153022 ms
+DEVICE: Tiempo multiplicacion: 117.189749 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=1024, ColumnasB=2048, Hilos=256
+512 2048 1024 32 4634.042729 338.586378
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (512x2048) x (2048x1024) -> (512x1024)
+Configuración: 32x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4634.042729 ms
+DEVICE: Tiempo multiplicacion: 338.586378 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=2048, Hilos=32
+512 2048 2048 32 9217.557478 343.121701
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (512x2048) x (2048x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9217.557478 ms
+DEVICE: Tiempo multiplicacion: 343.121701 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=2048, Hilos=64
+512 2048 2048 32 9164.711484 578.875560
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (512x2048) x (2048x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9164.711484 ms
+DEVICE: Tiempo multiplicacion: 578.875560 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=2048, Hilos=128
+512 2048 2048 32 9153.689345 243.853697
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (512x2048) x (2048x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9153.689345 ms
+DEVICE: Tiempo multiplicacion: 243.853697 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=512, ColumnasA=2048, ColumnasB=2048, Hilos=256
+512 2048 2048 32 9068.992122 337.387729
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (512x2048) x (2048x2048) -> (512x2048)
+Configuración: 64x16 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9068.992122 ms
+DEVICE: Tiempo multiplicacion: 337.387729 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=256, Hilos=32
+1024 256 256 32 220.902579 327.667337
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (1024x256) x (256x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.902579 ms
+DEVICE: Tiempo multiplicacion: 327.667337 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=256, Hilos=64
+1024 256 256 32 220.640491 113.647583
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (1024x256) x (256x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.640491 ms
+DEVICE: Tiempo multiplicacion: 113.647583 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=256, Hilos=128
+1024 256 256 32 220.814279 115.184169
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (1024x256) x (256x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.814279 ms
+DEVICE: Tiempo multiplicacion: 115.184169 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=256, Hilos=256
+1024 256 256 32 220.696368 124.409218
+GiB ocupados en la GPU: 0.00878906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3851 GiB
+Multiplicación de matrices (1024x256) x (256x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 220.696368 ms
+DEVICE: Tiempo multiplicacion: 124.409218 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=256, Hilos=32
+1024 256 512 32 450.820134 328.777285
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x256) x (256x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 450.820134 ms
+DEVICE: Tiempo multiplicacion: 328.777285 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=256, Hilos=64
+1024 256 512 32 450.823929 334.309568
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x256) x (256x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 450.823929 ms
+DEVICE: Tiempo multiplicacion: 334.309568 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=256, Hilos=128
+1024 256 512 32 450.873691 343.949336
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x256) x (256x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 450.873691 ms
+DEVICE: Tiempo multiplicacion: 343.949336 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=256, Hilos=256
+1024 256 512 32 450.371793 334.739226
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x256) x (256x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 450.371793 ms
+DEVICE: Tiempo multiplicacion: 334.739226 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=256, Hilos=32
+1024 256 1024 32 989.265486 124.756678
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x256) x (256x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 989.265486 ms
+DEVICE: Tiempo multiplicacion: 124.756678 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=256, Hilos=64
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 256 1024 32 1040.651167 281.943644
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x256) x (256x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1040.651167 ms
+DEVICE: Tiempo multiplicacion: 281.943644 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=256, Hilos=128
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 256 1024 32 1050.736953 331.942626
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x256) x (256x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1050.736953 ms
+DEVICE: Tiempo multiplicacion: 331.942626 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=256, Hilos=256
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 256 1024 32 1035.045579 321.498760
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x256) x (256x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1035.045579 ms
+DEVICE: Tiempo multiplicacion: 321.498760 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=256, Hilos=32
+1024 256 2048 32 2108.796960 335.093647
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x256) x (256x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2108.796960 ms
+DEVICE: Tiempo multiplicacion: 335.093647 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=256, Hilos=64
+1024 256 2048 32 2039.405032 136.473080
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x256) x (256x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2039.405032 ms
+DEVICE: Tiempo multiplicacion: 136.473080 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=256, Hilos=128
+1024 256 2048 32 2205.549304 192.658458
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x256) x (256x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2205.549304 ms
+DEVICE: Tiempo multiplicacion: 192.658458 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=256, Hilos=256
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 256 2048 32 2183.308517 329.968809
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x256) x (256x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2183.308517 ms
+DEVICE: Tiempo multiplicacion: 329.968809 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=512, Hilos=32
+1024 512 256 32 440.326758 212.423679
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x512) x (512x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 440.326758 ms
+DEVICE: Tiempo multiplicacion: 212.423679 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=512, Hilos=64
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 512 256 32 474.649969 347.804333
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x512) x (512x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 474.649969 ms
+DEVICE: Tiempo multiplicacion: 347.804333 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=512, Hilos=128
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 512 256 32 440.292756 120.796907
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x512) x (512x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 440.292756 ms
+DEVICE: Tiempo multiplicacion: 120.796907 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=512, Hilos=256
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 512 256 32 440.457964 146.773671
+GiB ocupados en la GPU: 0.0136719 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3802 GiB
+Multiplicación de matrices (1024x512) x (512x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 440.457964 ms
+DEVICE: Tiempo multiplicacion: 146.773671 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=512, Hilos=32
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 512 512 32 1060.851200 337.368901
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (1024x512) x (512x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1060.851200 ms
+DEVICE: Tiempo multiplicacion: 337.368901 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=512, Hilos=64
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 512 512 32 1044.193720 126.396123
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (1024x512) x (512x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1044.193720 ms
+DEVICE: Tiempo multiplicacion: 126.396123 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=512, Hilos=128
+1024 512 512 32 1026.789061 340.036704
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (1024x512) x (512x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1026.789061 ms
+DEVICE: Tiempo multiplicacion: 340.036704 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=512, Hilos=256
+1024 512 512 32 897.897611 115.854899
+GiB ocupados en la GPU: 0.0195312 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3743 GiB
+Multiplicación de matrices (1024x512) x (512x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 897.897611 ms
+DEVICE: Tiempo multiplicacion: 115.854899 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=512, Hilos=32
+1024 512 1024 32 2496.799322 125.038867
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x512) x (512x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2496.799322 ms
+DEVICE: Tiempo multiplicacion: 125.038867 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=512, Hilos=64
+1024 512 1024 32 2412.123797 134.126937
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x512) x (512x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2412.123797 ms
+DEVICE: Tiempo multiplicacion: 134.126937 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=512, Hilos=128
+1024 512 1024 32 2378.680042 122.836359
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x512) x (512x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2378.680042 ms
+DEVICE: Tiempo multiplicacion: 122.836359 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=512, Hilos=256
+1024 512 1024 32 2374.815698 146.852333
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x512) x (512x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2374.815698 ms
+DEVICE: Tiempo multiplicacion: 146.852333 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=512, Hilos=32
+1024 512 2048 32 4658.793866 118.969171
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x512) x (512x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4658.793866 ms
+DEVICE: Tiempo multiplicacion: 118.969171 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=512, Hilos=64
+1024 512 2048 32 4882.529051 126.454688
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x512) x (512x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4882.529051 ms
+DEVICE: Tiempo multiplicacion: 126.454688 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=512, Hilos=128
+1024 512 2048 32 4684.134917 238.457995
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x512) x (512x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4684.134917 ms
+DEVICE: Tiempo multiplicacion: 238.457995 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=512, Hilos=256
+1024 512 2048 32 4740.224249 197.041449
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x512) x (512x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4740.224249 ms
+DEVICE: Tiempo multiplicacion: 197.041449 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=1024, Hilos=32
+1024 1024 256 32 997.001735 350.651071
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x1024) x (1024x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 997.001735 ms
+DEVICE: Tiempo multiplicacion: 350.651071 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=1024, Hilos=64
+1024 1024 256 32 1023.255948 121.946863
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x1024) x (1024x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1023.255948 ms
+DEVICE: Tiempo multiplicacion: 121.946863 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=1024, Hilos=128
+1024 1024 256 32 1051.518384 337.459933
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x1024) x (1024x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1051.518384 ms
+DEVICE: Tiempo multiplicacion: 337.459933 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=1024, Hilos=256
+1024 1024 256 32 1034.100215 341.834408
+GiB ocupados en la GPU: 0.0234375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3704 GiB
+Multiplicación de matrices (1024x1024) x (1024x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1034.100215 ms
+DEVICE: Tiempo multiplicacion: 341.834408 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=1024, Hilos=32
+1024 1024 512 32 2313.790677 569.816614
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x1024) x (1024x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2313.790677 ms
+DEVICE: Tiempo multiplicacion: 569.816614 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=1024, Hilos=64
+1024 1024 512 32 2325.337501 161.546288
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x1024) x (1024x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2325.337501 ms
+DEVICE: Tiempo multiplicacion: 161.546288 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=1024, Hilos=128
+1024 1024 512 32 2358.498938 224.307820
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x1024) x (1024x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2358.498938 ms
+DEVICE: Tiempo multiplicacion: 224.307820 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=1024, Hilos=256
+1024 1024 512 32 2359.380776 186.464018
+GiB ocupados en la GPU: 0.03125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3626 GiB
+Multiplicación de matrices (1024x1024) x (1024x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2359.380776 ms
+DEVICE: Tiempo multiplicacion: 186.464018 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=1024, Hilos=32
+1024 1024 1024 32 4684.062697 299.515832
+GiB ocupados en la GPU: 0.046875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.347 GiB
+Multiplicación de matrices (1024x1024) x (1024x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4684.062697 ms
+DEVICE: Tiempo multiplicacion: 299.515832 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=1024, Hilos=64
+1024 1024 1024 32 4942.072725 344.472804
+GiB ocupados en la GPU: 0.046875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.347 GiB
+Multiplicación de matrices (1024x1024) x (1024x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4942.072725 ms
+DEVICE: Tiempo multiplicacion: 344.472804 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=1024, Hilos=128
+1024 1024 1024 32 4823.442925 177.300568
+GiB ocupados en la GPU: 0.046875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.347 GiB
+Multiplicación de matrices (1024x1024) x (1024x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4823.442925 ms
+DEVICE: Tiempo multiplicacion: 177.300568 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=1024, Hilos=256
+1024 1024 1024 32 4694.653031 287.185132
+GiB ocupados en la GPU: 0.046875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.347 GiB
+Multiplicación de matrices (1024x1024) x (1024x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4694.653031 ms
+DEVICE: Tiempo multiplicacion: 287.185132 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=1024, Hilos=32
+1024 1024 2048 32 10612.730586 142.575970
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x1024) x (1024x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 10612.730586 ms
+DEVICE: Tiempo multiplicacion: 142.575970 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=1024, Hilos=64
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 1024 2048 32 9863.671261 161.922491
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x1024) x (1024x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9863.671261 ms
+DEVICE: Tiempo multiplicacion: 161.922491 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=1024, Hilos=128
+1024 1024 2048 32 9330.122380 147.674720
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x1024) x (1024x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9330.122380 ms
+DEVICE: Tiempo multiplicacion: 147.674720 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=1024, Hilos=256
+1024 1024 2048 32 9399.667999 130.967543
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x1024) x (1024x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9399.667999 ms
+DEVICE: Tiempo multiplicacion: 130.967543 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=2048, Hilos=32
+1024 2048 256 32 2238.120947 360.464587
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x2048) x (2048x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2238.120947 ms
+DEVICE: Tiempo multiplicacion: 360.464587 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=2048, Hilos=64
+1024 2048 256 32 2253.686466 174.542125
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x2048) x (2048x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2253.686466 ms
+DEVICE: Tiempo multiplicacion: 174.542125 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=2048, Hilos=128
+1024 2048 256 32 2296.490729 261.312570
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x2048) x (2048x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2296.490729 ms
+DEVICE: Tiempo multiplicacion: 261.312570 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=256, ColumnasB=2048, Hilos=256
+1024 2048 256 32 2264.031798 301.007513
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (1024x2048) x (2048x256) -> (1024x256)
+Configuración: 8x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2264.031798 ms
+DEVICE: Tiempo multiplicacion: 301.007513 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=2048, Hilos=32
+1024 2048 512 32 4673.866115 310.321414
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x2048) x (2048x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4673.866115 ms
+DEVICE: Tiempo multiplicacion: 310.321414 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=2048, Hilos=64
+1024 2048 512 32 4594.002662 341.365496
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x2048) x (2048x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4594.002662 ms
+DEVICE: Tiempo multiplicacion: 341.365496 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=2048, Hilos=128
+1024 2048 512 32 4657.692457 171.867360
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x2048) x (2048x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4657.692457 ms
+DEVICE: Tiempo multiplicacion: 171.867360 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=512, ColumnasB=2048, Hilos=256
+1024 2048 512 32 4624.574775 336.867086
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (1024x2048) x (2048x512) -> (1024x512)
+Configuración: 16x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4624.574775 ms
+DEVICE: Tiempo multiplicacion: 336.867086 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=2048, Hilos=32
+1024 2048 1024 32 9298.180029 203.790467
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x2048) x (2048x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9298.180029 ms
+DEVICE: Tiempo multiplicacion: 203.790467 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=2048, Hilos=64
+1024 2048 1024 32 9355.552486 126.134600
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x2048) x (2048x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9355.552486 ms
+DEVICE: Tiempo multiplicacion: 126.134600 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=2048, Hilos=128
+1024 2048 1024 32 9287.220579 126.723837
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x2048) x (2048x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9287.220579 ms
+DEVICE: Tiempo multiplicacion: 126.723837 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=1024, ColumnasB=2048, Hilos=256
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 2048 1024 32 9314.501523 290.183527
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (1024x2048) x (2048x1024) -> (1024x1024)
+Configuración: 32x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9314.501523 ms
+DEVICE: Tiempo multiplicacion: 290.183527 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=2048, Hilos=32
+1024 2048 2048 32 18698.489356 160.620243
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (1024x2048) x (2048x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18698.489356 ms
+DEVICE: Tiempo multiplicacion: 160.620243 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=2048, Hilos=64
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+1024 2048 2048 32 18520.514953 356.319856
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (1024x2048) x (2048x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18520.514953 ms
+DEVICE: Tiempo multiplicacion: 356.319856 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=2048, Hilos=128
+1024 2048 2048 32 18326.001751 322.138232
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (1024x2048) x (2048x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18326.001751 ms
+DEVICE: Tiempo multiplicacion: 322.138232 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=1024, ColumnasA=2048, ColumnasB=2048, Hilos=256
+1024 2048 2048 32 19033.549069 356.294068
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (1024x2048) x (2048x2048) -> (1024x2048)
+Configuración: 64x32 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 19033.549069 ms
+DEVICE: Tiempo multiplicacion: 356.294068 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=256, Hilos=32
+2048 256 256 32 441.564442 201.116774
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (2048x256) x (256x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 441.564442 ms
+DEVICE: Tiempo multiplicacion: 201.116774 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=256, Hilos=64
+2048 256 256 32 444.477949 131.501550
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (2048x256) x (256x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 444.477949 ms
+DEVICE: Tiempo multiplicacion: 131.501550 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=256, Hilos=128
+2048 256 256 32 441.520898 131.195961
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (2048x256) x (256x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 441.520898 ms
+DEVICE: Tiempo multiplicacion: 131.195961 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=256, Hilos=256
+2048 256 256 32 441.781793 137.132002
+GiB ocupados en la GPU: 0.0166016 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3773 GiB
+Multiplicación de matrices (2048x256) x (256x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 441.781793 ms
+DEVICE: Tiempo multiplicacion: 137.132002 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=256, Hilos=32
+2048 256 512 32 901.377062 123.253789
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x256) x (256x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 901.377062 ms
+DEVICE: Tiempo multiplicacion: 123.253789 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=256, Hilos=64
+2048 256 512 32 900.777308 341.828445
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x256) x (256x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 900.777308 ms
+DEVICE: Tiempo multiplicacion: 341.828445 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=256, Hilos=128
+2048 256 512 32 901.295898 124.361247
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x256) x (256x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 901.295898 ms
+DEVICE: Tiempo multiplicacion: 124.361247 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=256, Hilos=256
+2048 256 512 32 900.435337 132.202780
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x256) x (256x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 900.435337 ms
+DEVICE: Tiempo multiplicacion: 132.202780 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=256, Hilos=32
+2048 256 1024 32 2256.797290 357.618246
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x256) x (256x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2256.797290 ms
+DEVICE: Tiempo multiplicacion: 357.618246 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=256, Hilos=64
+2048 256 1024 32 2144.040137 130.612205
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x256) x (256x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2144.040137 ms
+DEVICE: Tiempo multiplicacion: 130.612205 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=256, Hilos=128
+2048 256 1024 32 2131.319465 208.392844
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x256) x (256x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2131.319465 ms
+DEVICE: Tiempo multiplicacion: 208.392844 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=256, Hilos=256
+2048 256 1024 32 2229.683123 212.747407
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x256) x (256x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2229.683123 ms
+DEVICE: Tiempo multiplicacion: 212.747407 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=256, Hilos=32
+2048 256 2048 32 4767.100601 135.120806
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x256) x (256x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4767.100601 ms
+DEVICE: Tiempo multiplicacion: 135.120806 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=256, Hilos=64
+2048 256 2048 32 4395.373741 137.975986
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x256) x (256x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4395.373741 ms
+DEVICE: Tiempo multiplicacion: 137.975986 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=256, Hilos=128
+2048 256 2048 32 4712.174836 293.461339
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x256) x (256x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4712.174836 ms
+DEVICE: Tiempo multiplicacion: 293.461339 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=256, Hilos=256
+2048 256 2048 32 4651.707443 346.377379
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x256) x (256x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4651.707443 ms
+DEVICE: Tiempo multiplicacion: 346.377379 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=512, Hilos=32
+2048 512 256 32 880.698248 118.201141
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x512) x (512x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 880.698248 ms
+DEVICE: Tiempo multiplicacion: 118.201141 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=512, Hilos=64
+2048 512 256 32 880.939005 170.975000
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x512) x (512x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 880.939005 ms
+DEVICE: Tiempo multiplicacion: 170.975000 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=512, Hilos=128
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+2048 512 256 32 888.769926 126.641837
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x512) x (512x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 888.769926 ms
+DEVICE: Tiempo multiplicacion: 126.641837 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=512, Hilos=256
+2048 512 256 32 880.705364 345.364690
+GiB ocupados en la GPU: 0.0253906 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3685 GiB
+Multiplicación de matrices (2048x512) x (512x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 880.705364 ms
+DEVICE: Tiempo multiplicacion: 345.364690 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=512, Hilos=32
+2048 512 512 32 2444.242317 439.082058
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (2048x512) x (512x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2444.242317 ms
+DEVICE: Tiempo multiplicacion: 439.082058 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=512, Hilos=64
+2048 512 512 32 2360.474792 552.883128
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (2048x512) x (512x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2360.474792 ms
+DEVICE: Tiempo multiplicacion: 552.883128 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=512, Hilos=128
+srun: Job 9841936 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 9841936
+2048 512 512 32 2314.348834 338.418173
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (2048x512) x (512x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2314.348834 ms
+DEVICE: Tiempo multiplicacion: 338.418173 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=512, Hilos=256
+2048 512 512 32 2255.711972 352.183019
+GiB ocupados en la GPU: 0.0351562 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3587 GiB
+Multiplicación de matrices (2048x512) x (512x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2255.711972 ms
+DEVICE: Tiempo multiplicacion: 352.183019 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=512, Hilos=32
+2048 512 1024 32 5425.726920 483.759086
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x512) x (512x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 5425.726920 ms
+DEVICE: Tiempo multiplicacion: 483.759086 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=512, Hilos=64
+2048 512 1024 32 4696.419875 161.733967
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x512) x (512x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4696.419875 ms
+DEVICE: Tiempo multiplicacion: 161.733967 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=512, Hilos=128
+2048 512 1024 32 4883.839059 127.239985
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x512) x (512x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4883.839059 ms
+DEVICE: Tiempo multiplicacion: 127.239985 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=512, Hilos=256
+2048 512 1024 32 5358.459167 353.687582
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x512) x (512x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 5358.459167 ms
+DEVICE: Tiempo multiplicacion: 353.687582 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=512, Hilos=32
+2048 512 2048 32 10635.202415 250.841366
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x512) x (512x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 10635.202415 ms
+DEVICE: Tiempo multiplicacion: 250.841366 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=512, Hilos=64
+2048 512 2048 32 10663.120353 135.093133
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x512) x (512x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 10663.120353 ms
+DEVICE: Tiempo multiplicacion: 135.093133 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=512, Hilos=128
+2048 512 2048 32 10677.568256 126.892845
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x512) x (512x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 10677.568256 ms
+DEVICE: Tiempo multiplicacion: 126.892845 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=512, Hilos=256
+2048 512 2048 32 9330.527326 333.358492
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x512) x (512x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9330.527326 ms
+DEVICE: Tiempo multiplicacion: 333.358492 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=1024, Hilos=32
+2048 1024 256 32 2086.917633 528.665102
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x1024) x (1024x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2086.917633 ms
+DEVICE: Tiempo multiplicacion: 528.665102 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=1024, Hilos=64
+2048 1024 256 32 2004.101472 130.689965
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x1024) x (1024x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2004.101472 ms
+DEVICE: Tiempo multiplicacion: 130.689965 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=1024, Hilos=128
+2048 1024 256 32 2037.676682 123.311374
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x1024) x (1024x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 2037.676682 ms
+DEVICE: Tiempo multiplicacion: 123.311374 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=1024, Hilos=256
+2048 1024 256 32 1821.688205 121.214599
+GiB ocupados en la GPU: 0.0429688 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3509 GiB
+Multiplicación de matrices (2048x1024) x (1024x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 1821.688205 ms
+DEVICE: Tiempo multiplicacion: 121.214599 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=1024, Hilos=32
+2048 1024 512 32 4677.886061 294.708264
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x1024) x (1024x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4677.886061 ms
+DEVICE: Tiempo multiplicacion: 294.708264 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=1024, Hilos=64
+2048 1024 512 32 4711.787102 124.332890
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x1024) x (1024x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4711.787102 ms
+DEVICE: Tiempo multiplicacion: 124.332890 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=1024, Hilos=128
+2048 1024 512 32 4697.816958 128.275057
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x1024) x (1024x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4697.816958 ms
+DEVICE: Tiempo multiplicacion: 128.275057 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=1024, Hilos=256
+2048 1024 512 32 4657.878369 560.723426
+GiB ocupados en la GPU: 0.0546875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3392 GiB
+Multiplicación de matrices (2048x1024) x (1024x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4657.878369 ms
+DEVICE: Tiempo multiplicacion: 560.723426 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=1024, Hilos=32
+2048 1024 1024 32 9595.362608 346.070759
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x1024) x (1024x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9595.362608 ms
+DEVICE: Tiempo multiplicacion: 346.070759 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=1024, Hilos=64
+2048 1024 1024 32 9602.027143 201.760979
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x1024) x (1024x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9602.027143 ms
+DEVICE: Tiempo multiplicacion: 201.760979 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=1024, Hilos=128
+2048 1024 1024 32 9417.290690 582.470885
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x1024) x (1024x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9417.290690 ms
+DEVICE: Tiempo multiplicacion: 582.470885 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=1024, Hilos=256
+2048 1024 1024 32 10651.072108 140.880575
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x1024) x (1024x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 10651.072108 ms
+DEVICE: Tiempo multiplicacion: 140.880575 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=1024, Hilos=32
+2048 1024 2048 32 18730.635980 141.808324
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x1024) x (1024x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18730.635980 ms
+DEVICE: Tiempo multiplicacion: 141.808324 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=1024, Hilos=64
+2048 1024 2048 32 18694.330580 535.228962
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x1024) x (1024x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18694.330580 ms
+DEVICE: Tiempo multiplicacion: 535.228962 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=1024, Hilos=128
+2048 1024 2048 32 18716.216092 129.960324
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x1024) x (1024x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18716.216092 ms
+DEVICE: Tiempo multiplicacion: 129.960324 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=1024, Hilos=256
+2048 1024 2048 32 18258.922037 591.150929
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x1024) x (1024x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18258.922037 ms
+DEVICE: Tiempo multiplicacion: 591.150929 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=2048, Hilos=32
+2048 2048 256 32 4547.834898 461.407804
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x2048) x (2048x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4547.834898 ms
+DEVICE: Tiempo multiplicacion: 461.407804 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=2048, Hilos=64
+2048 2048 256 32 4526.186174 211.665003
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x2048) x (2048x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4526.186174 ms
+DEVICE: Tiempo multiplicacion: 211.665003 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=2048, Hilos=128
+2048 2048 256 32 4592.169080 138.031938
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x2048) x (2048x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4592.169080 ms
+DEVICE: Tiempo multiplicacion: 138.031938 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=256, ColumnasB=2048, Hilos=256
+2048 2048 256 32 4433.552811 243.472106
+GiB ocupados en la GPU: 0.078125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3157 GiB
+Multiplicación de matrices (2048x2048) x (2048x256) -> (2048x256)
+Configuración: 8x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 4433.552811 ms
+DEVICE: Tiempo multiplicacion: 243.472106 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=2048, Hilos=32
+2048 2048 512 32 9033.116334 541.503049
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x2048) x (2048x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9033.116334 ms
+DEVICE: Tiempo multiplicacion: 541.503049 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=2048, Hilos=64
+2048 2048 512 32 9092.741185 563.946020
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x2048) x (2048x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9092.741185 ms
+DEVICE: Tiempo multiplicacion: 563.946020 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=2048, Hilos=128
+2048 2048 512 32 9145.365232 475.975009
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x2048) x (2048x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9145.365232 ms
+DEVICE: Tiempo multiplicacion: 475.975009 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=512, ColumnasB=2048, Hilos=256
+2048 2048 512 32 9511.572760 291.608932
+GiB ocupados en la GPU: 0.09375 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.3001 GiB
+Multiplicación de matrices (2048x2048) x (2048x512) -> (2048x512)
+Configuración: 16x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 9511.572760 ms
+DEVICE: Tiempo multiplicacion: 291.608932 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=2048, Hilos=32
+2048 2048 1024 32 18480.496222 158.494627
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x2048) x (2048x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18480.496222 ms
+DEVICE: Tiempo multiplicacion: 158.494627 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=2048, Hilos=64
+2048 2048 1024 32 18576.099303 138.158766
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x2048) x (2048x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18576.099303 ms
+DEVICE: Tiempo multiplicacion: 138.158766 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=2048, Hilos=128
+2048 2048 1024 32 18478.172987 214.056407
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x2048) x (2048x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18478.172987 ms
+DEVICE: Tiempo multiplicacion: 214.056407 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=1024, ColumnasB=2048, Hilos=256
+2048 2048 1024 32 18480.917698 188.677882
+GiB ocupados en la GPU: 0.125 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2689 GiB
+Multiplicación de matrices (2048x2048) x (2048x1024) -> (2048x1024)
+Configuración: 32x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 18480.917698 ms
+DEVICE: Tiempo multiplicacion: 188.677882 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=2048, Hilos=32
+2048 2048 2048 32 37328.443676 312.734030
+GiB ocupados en la GPU: 0.1875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2064 GiB
+Multiplicación de matrices (2048x2048) x (2048x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 37328.443676 ms
+DEVICE: Tiempo multiplicacion: 312.734030 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=2048, Hilos=64
+2048 2048 2048 32 37269.434577 350.079446
+GiB ocupados en la GPU: 0.1875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2064 GiB
+Multiplicación de matrices (2048x2048) x (2048x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 37269.434577 ms
+DEVICE: Tiempo multiplicacion: 350.079446 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=2048, Hilos=128
+2048 2048 2048 32 36591.486607 160.689392
+GiB ocupados en la GPU: 0.1875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2064 GiB
+Multiplicación de matrices (2048x2048) x (2048x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 36591.486607 ms
+DEVICE: Tiempo multiplicacion: 160.689392 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
+Prueba: FilasA=2048, ColumnasA=2048, ColumnasB=2048, Hilos=256
+2048 2048 2048 32 36192.301612 346.323039
+GiB ocupados en la GPU: 0.1875 GiB, memoria global 39.3939 GiB
+GiB libres en la GPU: 39.2064 GiB
+Multiplicación de matrices (2048x2048) x (2048x2048) -> (2048x2048)
+Configuración: 64x64 bloques de 32x32 threads
+HOST: Tiempo multiplicacion: 36192.301612 ms
+DEVICE: Tiempo multiplicacion: 346.323039 ms
+Multiplicacion correcta.
+Terminamos
+----------------------------------------------------
