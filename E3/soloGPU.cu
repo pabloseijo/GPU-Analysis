@@ -213,7 +213,7 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
  
    printf("Terminamos\n");
 
-    fprint(fichero,"\n");
+    fprintf(fichero,"\n");
     fclose(fichero);
 
    return 0;
