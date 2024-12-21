@@ -124,7 +124,7 @@ main(int argc, char* argv[])
     printf("Multiplicación de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
     printf("Configuración: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
 
-    fprintf(fichero, "%u %u %u %u %u", nFilasA, nColumnasA, nColumnasB, tbpdimX, tpbdimY);
+    fprintf(fichero, "%u %u %u %u %u", nFilasA, nColumnasA, nColumnasB, tpbdimX, tpbdimY);
 
     // Reserva memoria en el host
     h_A = (basetype*)malloc(sizeA);
@@ -161,7 +161,7 @@ main(int argc, char* argv[])
     printf("DEVICE: Tiempo multiplicacion: %lf ms\n", tint);
     fprintf(fichero, " %lf", tint);
 
-    fprint(fichero, "\n");
+    fprintf(fichero, "\n");
     fclose(fichero);
 
     return 0;
