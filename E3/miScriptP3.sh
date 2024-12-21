@@ -21,7 +21,8 @@ archivo_resultados=$1
 > "$archivo_resultados"
 
 # Programa a ejecutar
-programa="./matrizMul-simple"
+programaCPU="./ejecutableCPU"
+programaGPU="./ejecutableGPU"
 
 # Configuraciones para las pruebas
 filas_matrices=(32 256 1024 2048)         # Tamaños de filas de A
@@ -33,13 +34,14 @@ hilos2_por_bloque=(1 8 16 32 64 128 256) # Hilos por bloque (múltiplos del warp
 for filasA in "${filas_matrices[@]}"; do
     for columnasB in "${columnas_matrices[@]}"; do
         for columnasA in "${columnas_matrices[@]}"; do
+            srun "$programaCPU" "$filasA" "$columnasB" "$columnasA" "$hilos" "$hilos2" "$archivo_resultados"
             for hilos in "${hilos_por_bloque[@]}"; do
                 for hilos2 in "${hilos2_por_bloque[@]}"; do
                     # Imprime en el archivo los parámetros de la prueba
                     #echo "Prueba: FilasA=$filasA, ColumnasA=$columnasA, ColumnasB=$columnasB, Hilos=$hilos" >> "$archivo_resultados"
                     
                     # Ejecuta el programa con los parámetros actuales
-                    srun "$programa" "$filasA" "$columnasB" "$columnasA" "$hilos" "$hilos2" "$archivo_resultados"
+                    srun "$programaGPU" "$filasA" "$columnasB" "$columnasA" "$hilos" "$hilos2" "$archivo_resultados"
     
                     # Separador entre pruebas en el archivo de resultados
                     #echo "----------------------------------------------------" >> "$archivo_resultados"
