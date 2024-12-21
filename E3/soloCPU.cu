@@ -18,7 +18,7 @@ inline void asserError(cudaError_t code, const char* file, int line, bool abort 
 #define TSET(time)  clock_gettime( CLOCK_MONOTONIC, &(time) )
 #define TINT(ts,te) { ( (double) 1000.*( (te).tv_sec - (ts).tv_sec ) + ( (te).tv_nsec - (ts).tv_nsec )/(double) 1.e6 ) }
 
-// Numero maximo de threads por cada dimensi髇 del bloque
+// Numero maximo de threads por cada dimensi贸n del bloque
 // Consideramos threadsPerBlock.x == threadsPerBlock.y
 //
 #define MAX_HILOS_TOTALES 1024
@@ -26,7 +26,7 @@ inline void asserError(cudaError_t code, const char* file, int line, bool abort 
 // Tamanho por defecto de las matrices
 #define MATDIMDEF 1000
 
-// Numero de threads por cada dimensi髇 bloque por defecto
+// Numero de threads por cada dimensi贸n bloque por defecto
 #define TPBDIMDEF 4
 
 // Tipo de datos
@@ -56,8 +56,8 @@ __host__ void h_matrizMul(const basetype* A, const basetype* B, basetype* C,
  */
 __global__ void d_matrizMul(const basetype* A, const basetype* B, basetype* C,
     unsigned int nFilasA, unsigned int nColumnasA, unsigned int nColumnasB) {
-    unsigned int i = blockIdx.y * blockDim.y + threadIdx.y; // 蚽dice de fila
-    unsigned int j = blockIdx.x * blockDim.x + threadIdx.x; // 蚽dice de columna
+    unsigned int i = blockIdx.y * blockDim.y + threadIdx.y; // 脥ndice de fila
+    unsigned int j = blockIdx.x * blockDim.x + threadIdx.x; // 脥ndice de columna
 
     if (i < nFilasA && j < nColumnasB) {
         basetype sum = 0.0f;
@@ -88,7 +88,7 @@ main(int argc, char* argv[])
     nFilasA = (argc > 1) ? atoi(argv[1]) : MATDIMDEF;
     nColumnasA = (argc > 2) ? atoi(argv[2]) : MATDIMDEF;
     nColumnasB = (argc > 3) ? atoi(argv[3]) : MATDIMDEF;
-    // Tama駉s de las matrices
+    // Tama帽os de las matrices
     sizeA = nFilasA * nColumnasA * sizeof(basetype);
     sizeB = nColumnasA * nColumnasB * sizeof(basetype);
     sizeC = nFilasA * nColumnasB * sizeof(basetype);
@@ -97,7 +97,7 @@ main(int argc, char* argv[])
     tpbdimX = (argc > 4) ? atoi(argv[4]) : TPBDIMDEF;
 
     tpbdimX = (argc > 5) ? atoi(argv[5]) : TPBDIMDEF;
-    // Comprueba si es superior al m醲imo
+    // Comprueba si es superior al m谩ximo
     while (tpbdimX * tpbdimY > MAX_HILOS_TOTALES) {
         int turno = 0;
         if (turno % 2 == 0) {
@@ -116,13 +116,13 @@ main(int argc, char* argv[])
     check_memoria(sizeA + sizeB + sizeC);
 
     // Caracteristicas del Grid
-    // Hilos por bloque: primer par醡etro dim_x, segundo dim_y
+    // Hilos por bloque: primer par谩metro dim_x, segundo dim_y
     dim3 threadsPerBlock(tpbdimX, tpbdimY, 1);
-    // TODO: Calcula el n鷐ero de bloques en el Grid (bidimensional)
+    // TODO: Calcula el n煤mero de bloques en el Grid (bidimensional)
     dim3 blocksPerGrid((nColumnasB + tpbdimX - 1) / tpbdimX, (nFilasA + tpbdimY - 1) / tpbdimY, 1);
 
-    printf("Multiplicaci髇 de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
-    printf("Configuraci髇: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
+    printf("Multiplicaci贸n de matrices (%ux%u) x (%ux%u) -> (%ux%u)\n", nFilasA, nColumnasA, nColumnasA, nColumnasB, nFilasA, nColumnasB);
+    printf("Configuraci贸n: %ux%u bloques de %ux%u threads\n", blocksPerGrid.x, blocksPerGrid.y, threadsPerBlock.x, threadsPerBlock.y);
 
     fprintf(fichero, "%u %u %u %u %u", nFilasA, nColumnasA, nColumnasB, tbpdimX, tpbdimY);
 
@@ -156,6 +156,11 @@ main(int argc, char* argv[])
     fprintf(fichero, " %lf", tint);
     printf("Terminamos\n");
 
+
+    tint = 0;
+    printf("DEVICE: Tiempo multiplicacion: %lf ms\n", tint);
+    fprintf(fichero, " %lf", tint);
+
     fprint(fichero, "\n");
     fclose(fichero);
 
@@ -177,12 +182,12 @@ main(int argc, char* argv[])
     d_matrizMul << < blocksPerGrid, threadsPerBlock >> > (d_A, d_B, d_C, nFilasA, nColumnasA, nColumnasB);
 
     // Comprueba si hubo un error al el lanzamiento del kernel
-    // Notar que el lanzamiento del kernel es as韓crono por lo que
-    // este chequeo podr韆 no detectar errores en la ejecuci髇 del mismo
+    // Notar que el lanzamiento del kernel es as铆ncrono por lo que
+    // este chequeo podr铆a no detectar errores en la ejecuci贸n del mismo
     checkError(cudaPeekAtLastError());
     // Sincroniza los hilos del kernel y chequea errores
-    // Este chequeo detecta posibles errores en la ejecuci髇
-    // Notar que esta sincrinizaci髇 puede degradar el rendimiento
+    // Este chequeo detecta posibles errores en la ejecuci贸n
+    // Notar que esta sincrinizaci贸n puede degradar el rendimiento
     checkError(cudaDeviceSynchronize());
 
     // Copia el vector resultado del dispositivo al host
@@ -199,7 +204,7 @@ main(int argc, char* argv[])
     // Verifica que la multiplicacion es correcta
     for (unsigned int i = 0; i < nFilasA * nColumnasB; ++i) {
         if (fabs(h_C[i] - h_C2[i]) > 1e-3) {
-            fprintf(stderr, "Verificaci髇 de resultados falla en el elemento %d!\n", i);
+            fprintf(stderr, "Verificaci贸n de resultados falla en el elemento %d!\n", i);
             exit(EXIT_FAILURE);
         }
     }
