@@ -27,7 +27,7 @@ programa="./matrizMul-simple"
 filas_matrices=(32 256 1024 2048)         # Tamaños de filas de A
 columnas_matrices=(32 256 1024 2048)      # Tamaños de columnas de B
 hilos_por_bloque=(1 8 16 32 64 128 256)     
-hilos_por_bloque=(1 8 16 32 64 128 256) # Hilos por bloque (múltiplos del warp)
+hilos2_por_bloque=(1 8 16 32 64 128 256) # Hilos por bloque (múltiplos del warp)
 
 # Itera sobre los diferentes tamaños de matrices y configuraciones
 for filasA in "${filas_matrices[@]}"; do
