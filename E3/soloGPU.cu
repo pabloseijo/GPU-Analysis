@@ -96,7 +96,7 @@
     // Numero de threads por cada dimension  del bloque
    tpbdimX = (argc > 4) ? atoi(argv[4]) : TPBDIMDEF;
 
-   tpbdimX = (argc > 5) ? atoi(argv[5]) : TPBDIMDEF;
+   tpbdimY = (argc > 5) ? atoi(argv[5]) : TPBDIMDEF;
    // Comprueba si es superior al máximo
    while(tpbdimX * tpbdimY > MAX_HILOS_TOTALES) {
        int turno = 0;
