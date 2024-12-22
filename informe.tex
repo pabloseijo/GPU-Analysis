@@ -335,6 +335,36 @@ El uso de memoria unificada simplifica el desarrollo de aplicaciones CUDA, espec
 
 La memoria unificada permite un \textbf{flujo más sencillo} de programación al evitar transferencias manuales de datos. El rendimiento de la GPU sigue siendo notablemente superior al de la CPU, incluso con un manejo simplificado de la memoria. Para operaciones sencillas como la suma de vectores, la GPU demuestra ser una herramienta eficiente y rápida en aplicaciones de cómputo paralelo.
 
+\section{Producto de matrices en CUDA}
+
+El producto de matrices es una operación central en numerosos campos, como el álgebra lineal, la inteligencia artificial y las simulaciones científicas. En este apartado estudiaremos la implementación y optimización de la multiplicación de matrices utilizando CUDA, con un enfoque que permite matrices de tamaños y dimensiones variables. Además, estudiaremos el impacto del tamaño y las dimensiones de las matrices y la configuración de los bloques de hilos en el rendimiento de la GPU, y lo compararemos con el rendimiento de la CPU para el mismo problema.
+
+\subsection{Modificaciones realizadas al código}
+
+El código proporcionado para la realización de este apartado, \textit{matrizMul-simple.cu}, que realiza el producto de dos matrices cuadradas: C = A×B, tomando como parámetros de entrada la dimensión de la matriz (cuadrada) y el número de hilos en cada dimensión del bloque (considerando bloques cuadrados), está incompleto, consistiendo parcialmente este apartado en su compleción y su modificación para permitir la multiplicación de matrices no cuadradas así como el uso de bloques de hilos no cuadrados. 
+
+Así, el primer paso realizado fue completar las partes incompletas del código (marcadas con un \textit{TODO}), las cuales se detallarán a continuación. En primer lugar, debido a que ahora el código debía permitir la ejecución con bloques de dimensiones no cuadradas, ahora estas debían expresarse mediante dos unidades: donde antes estaba tpbdim, que formaba bloques de tamaño \textit{tbbdim} x \textit{tbbdim}, ahora existían \textit{tpbdimX} y \textit{tpbdimY}, que formarían bloques de tamaño \textit{tpbdimX} x \textit{tpbdimY}. Este cambio supone también una modificación en la forma en que se comprueba que el tamaño de los bloques de hilos no supere el máximo permitido de 1024, que ahora se realiza decrementando alternativamente sendas dimensiones hasta que estas formen bloques de un tamaño permitido.
+
+Para permitir la multiplicación de matrices no cuadradas con bloques de hilos también no cuadrados, se modificó la definición de la configuración del Grid y de los bloques de hilos en el código. Anteriormente, los bloques eran cuadrados, con un tamaño definido por una única variable (\textit{tpbdim}), lo cual limitaba la flexibilidad. La nueva implementación utiliza dos variables independientes: \textit{tpbdimX} y \textit{tpbdimY}, que representan las dimensiones \(x\) e \(y\) del bloque de hilos, respectivamente.
+
+Este cambio también afecta la configuración del Grid, donde ahora el número de bloques en cada dimensión se calcula considerando las dimensiones específicas del bloque. En particular, se utiliza la fórmula:
+
+\[
+\text{nBloques por dimensión} = \left\lceil \frac{n}{d} \right\rceil = \frac{n + d - 1}{d}
+\]
+
+donde \(n\) es el tamaño de la matriz en esa dimensión y \(d\) es la dimensión correspondiente del bloque (\textit{tpbdimX} o \textit{tpbdimY}). Esto garantiza que todos los elementos de la matriz sean procesados, incluso si las dimensiones de la matriz no son múltiplos exactos del tamaño del bloque. Este enfoque mejora la adaptabilidad del código a matrices de cualquier tamaño y configuración de bloques, maximizando el uso de los recursos del hardware.
+
+La línea que lanza el kernel CUDA se encontraba incompleta en el código original, por lo que debió ser modificada para incluir en su configuración los argumentos \textit{blocksPerGrid} y \textit{threadsPerBlock}, que calculamos como mencionamos anteriormente, así como los nuevos argumentos necesarios para la propia función de multiplicación, que ahora permite matrices no cuadradas, cuya implementación trataremos a continuación.
+
+La versión inicial del la función que multiplicaba utlizando la GPU asumía matrices cuadradas y utilizaba un único parámetro para definir sus dimensiones, limitando su flexibilidad. En la versión modificada, se introdujeron parámetros adicionales para especificar las dimensiones de las matrices (\texttt{nFilasA}, \texttt{nColumnasA} y \texttt{nColumnasB}), permitiendo multiplicar matrices rectangulares. Además, se calcularon los índices de los hilos de forma bidimensional utilizando \texttt{blockIdx}, \texttt{blockDim} y \texttt{threadIdx}, asignando cada hilo a una posición específica de la matriz de salida. Finalmente, se incluyó un chequeo de límites para garantizar accesos seguros a la memoria, para el caso en que los bloques de hilos no coincidan exactamente con las dimensiones de las matrices y pueda haber secciones de bloques que intenten acceder a direcciones de memoria inválidas. De manera similar, la función de multiplicación en la CPU fue alterada para permitir matrices rectangulares.
+
+Por último, se añadieron algunos fprintf que permitirían el posterior estudio de los rendimientos para diferentes tamaños de matrices y de bloques.
+
+\subsection{Resultados}
+
+Como sabemos, las unidades de procesamiento gráfico o GPUs exhiben una arquitectura que, a diferencia de las CPUs, que están diseñadas para ejecuciones secuenciales muy rápidas, pero con un pararelismo limitado, permiten una paralelizacióm masiva pernsada específicamente para operaciones repetitivas aplicadas a una gran cantidad de datos, como es el caso en el producto de matrices. Así, cabe esperar que estas presenten un rendimiento superior en la realización de dicha operación frente a las CPUs, tendencia que debería acentuarse a medida que crece el tamaño del problema.
+
 
 \end{document}
 
