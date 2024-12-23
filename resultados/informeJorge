@@ -1,0 +1,398 @@
+\documentclass[twocolumn,a4paper,12pt]{article}
+
+% Paquetes adicionales
+\usepackage[utf8]{inputenc} % Codificación UTF-8
+\usepackage{cite}
+\usepackage{hyperref} % Para enlaces y referencias cruzadas
+\usepackage{amsmath}        % Símbolos matemáticos
+\usepackage{graphicx}       % Incluir imágenes
+\usepackage{geometry}       % Configurar márgenes
+\usepackage{caption}        % Personalizar leyendas
+\usepackage{float}          % Control de posiciones
+\usepackage{booktabs}       % Tablas más bonitas
+\usepackage[spanish]{babel} % Fecha y texto en español
+\usepackage{datetime}       % Manejo de fechas
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% Configuración del formato de fecha
+\renewcommand{\today}{\number\day~de~\monthname[\month]~de~\number\year}
+
+% Título y autor
+\title{\textbf{Análisis de características y rendimiento de GPUs}}
+\author{
+\textbf{Jorge Otero Pailos y Pablo Seijo García} \\  % Nombre
+\small{Fundamentos de Sistemas Paralelos} \\ % Departamento
+\small{Universidad de Santiago de Compostela} \\ % Universidad o institución
+\small{\texttt{jorge.otero.pailos@rai.usc.es, pablo.garcia.seijo@rai.usc.es}} % Correo electrónico
+}
+\date{\today} % Fecha en español
+
+\begin{document}
+
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+    En esta práctica se analiza el rendimiento y las características de las GPUs NVIDIA A100 y T4 del CESGA utilizando CUDA. Se estudian sus propiedades arquitectónicas, el rendimiento en una suma de vectores y la optimización de un producto de matrices. Además, se comparan tiempos entre CPU y GPU, identificando etapas críticas y evaluando su eficiencia.
+
+    \textbf{Palabras clave:} CUDA, NVIDIA A100, NVIDIA T4, rendimiento de GPUs, CESGA.
+\end{abstract}
+\end{@twocolumnfalse}
+]
+
+
+\section{Introducción}
+Las unidades de procesamiento gráfico (GPUs) han revolucionado la computación de alto rendimiento debido a su capacidad para ejecutar un gran número de operaciones en paralelo. Originalmente diseñadas para el procesamiento de gráficos en videojuegos y aplicaciones visuales, las GPUs han evolucionado gracias a arquitecturas como CUDA de NVIDIA, permitiendo su uso en problemas de cómputo general (GPGPU, \textit{General Purpose GPU}). 
+
+La arquitectura CUDA (Compute Unified Device Architecture) proporciona un modelo de programación paralelo en el que un programa puede ejecutar miles de hilos simultáneamente, optimizando así tareas que requieren cálculos intensivos. Esto ha hecho que las GPUs sean fundamentales en campos como la inteligencia artificial, el aprendizaje profundo, la simulación científica, la minería de datos y la visualización de grandes volúmenes de información.
+
+En la presente práctica, se realiza un análisis exhaustivo de dos modelos de GPUs disponibles en el CESGA (Centro de Supercomputación de Galicia): la NVIDIA A100 y la NVIDIA T4. Estas dos GPUs presentan diferencias significativas tanto en su arquitectura como en sus características de rendimiento, lo que permite estudiar cómo estas particularidades afectan a diferentes aplicaciones de cómputo paralelo.
+
+El objetivo principal de esta práctica es el siguiente:
+\begin{itemize}
+    \item Estudiar las características arquitectónicas de las GPUs utilizando la función \texttt{cudaGetDeviceProperties} para obtener propiedades como el número de multiprocesadores (SMs), el tamaño de memoria compartida, el ancho de banda de memoria y el total de núcleos CUDA.
+    \item Evaluar y comparar el rendimiento de las GPUs mediante la ejecución de códigos CUDA simples, como la suma de vectores y el producto de matrices.
+    \item Optimizar los códigos utilizando técnicas avanzadas de programación CUDA, como la asignación eficiente de memoria y el ajuste del número de hilos por bloque.
+\end{itemize}
+
+El análisis incluye también la comparación de los tiempos de ejecución en CPU y GPU, identificando las etapas más costosas de los códigos ejecutados, como la transferencia de datos entre el host (CPU) y el dispositivo (GPU). Además, se explora el uso de memoria unificada para evaluar posibles mejoras en rendimiento.
+
+Finalmente, esta práctica proporciona una introducción al uso de librerías optimizadas como cuBLAS, que permite realizar operaciones matriciales de manera más eficiente. Se destaca así la importancia de aprovechar las capacidades específicas de cada GPU para lograr un rendimiento óptimo en aplicaciones científicas y de ingeniería.
+
+Con esta práctica, los estudiantes adquirirán las habilidades necesarias para programar y optimizar códigos en CUDA, comprender las limitaciones y ventajas de las GPUs y analizar su rendimiento en comparación con sistemas tradicionales basados en CPU.
+
+
+\section{Análisis de características de las GPUs}
+A continuación, se presenta una comparación entre las características de las GPUs NVIDIA A100 y T4, obtenidas mediante el programa \texttt{devquery.cu}:
+
+\begin{table}[H]
+    \centering
+    \caption{Comparación de características entre NVIDIA A100 y T4}
+    \label{tab:gpu_comparison}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Característica}            & \textbf{NVIDIA A100}        & \textbf{NVIDIA T4} \\
+        \midrule
+        Compute Capability        & 8.0                        & 7.5 \\
+        Número de SMs             & 108                        & 40 \\
+        Max Threads por SM         & 2048                       & 1536 \\
+        Tamaño de Grid            & [2.1B, 65K, 65K]           & [2.1B, 65K, 65K] \\
+        Max Threads por Bloque     & 1024                       & 1024 \\
+        Tamaño de Bloque          & [1024, 1024, 64]           & [1024, 1024, 64] \\
+        Registros por Bloque       & 65536                      & 65536 \\
+        Memoria Compartida (Bloque) & 48 KB                      & 64 KB \\
+        Memoria Compartida (SM)    & 5184 KB                    & 2048 KB \\
+        Memoria Global             & 39.39 GB                   & 15.73 GB \\
+        Frecuencia Memoria         & 1.215 GHz                  & 0.625 GHz \\
+        Ancho del Bus de Memoria   & 5120 bits                  & 256 bits \\
+        Pico de Ancho de Banda     & 1555.20 GiB/s              & 300 GiB/s \\
+        Total CUDA Cores           & 13824                      & 2560 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión}
+La tabla \ref{tab:gpu_comparison} resalta las diferencias clave entre las GPUs NVIDIA A100 y T4. Estas diferencias se centran principalmente en la arquitectura, capacidad de memoria, ancho de banda y el número de núcleos CUDA, lo que afecta directamente el rendimiento en tareas computacionales. A continuación, se analizan estos puntos en profundidad:
+
+\begin{itemize}
+    \item \textbf{Número de SMs y CUDA cores:} La A100 cuenta con 108 multiprocesadores (SMs) y un total de 13824 núcleos CUDA, frente a los 40 SMs y 2560 núcleos de la T4. Esta diferencia significa que la A100 puede manejar una mayor cantidad de hilos en paralelo, lo que resulta crucial para aplicaciones altamente paralelizables, como el entrenamiento de modelos de inteligencia artificial o simulaciones científicas a gran escala.
+
+    \item \textbf{Memoria global:} La memoria global disponible en la A100 es de 39.39 GB, más del doble de los 15.73 GB disponibles en la T4. Esto permite a la A100 gestionar conjuntos de datos significativamente más grandes y facilita la ejecución de aplicaciones que requieren un gran espacio de memoria, como el procesamiento de imágenes y análisis de big data.
+
+    \item \textbf{Ancho de banda de memoria:} La A100 presenta un ancho de banda pico de 1555.20 GiB/s, mientras que la T4 alcanza un máximo de 300 GiB/s. El alto ancho de banda de la A100 mejora considerablemente el rendimiento en aplicaciones que requieren un acceso intensivo a memoria, como multiplicación de matrices y operaciones de álgebra lineal en general. Esta diferencia es particularmente crítica en modelos de aprendizaje profundo, donde la transferencia de grandes volúmenes de datos entre la memoria y los núcleos de procesamiento es un cuello de botella importante.
+
+    \item \textbf{Memoria compartida:} La A100 dispone de 5184 KB de memoria compartida por multiprocesador, en comparación con los 2048 KB de la T4. La memoria compartida es un recurso clave en la optimización de aplicaciones CUDA, ya que permite la comunicación eficiente entre hilos dentro de un bloque. Al disponer de más memoria compartida, la A100 puede realizar cálculos intermedios más complejos sin recurrir a la memoria global, lo cual reduce la latencia.
+
+    \item \textbf{Compute Capability:} La A100 presenta una capacidad de cómputo de 8.0, basada en la arquitectura Ampere, mientras que la T4 tiene una capacidad de cómputo de 7.5 (arquitectura Turing). Las mejoras de Ampere incluyen optimizaciones en el procesamiento de instrucciones paralelas, mayor eficiencia energética y la introducción de Tensor Cores de tercera generación, que aceleran el cálculo de operaciones matriciales específicas.
+
+    \item \textbf{Aplicaciones prácticas:} Mientras que la T4 está optimizada para inferencia y cargas de trabajo moderadas, la A100 está diseñada específicamente para entrenamientos de modelos complejos de aprendizaje profundo y aplicaciones científicas que demandan un alto rendimiento. La diferencia en la capacidad de memoria y el número de núcleos CUDA hace que la A100 sea especialmente adecuada para simulaciones, análisis de datos y tareas de computación científica masiva.
+\end{itemize}
+
+\subsection{Conclusiones}
+El análisis comparativo entre las GPUs NVIDIA A100 y T4 demuestra que la A100 supera ampliamente a la T4 en términos de capacidad de cómputo, memoria y ancho de banda. Las ventajas observadas permiten concluir lo siguiente:
+
+\begin{itemize}
+    \item La \textbf{NVIDIA A100} es una GPU diseñada para aplicaciones de alto rendimiento. Su mayor número de multiprocesadores, ancho de banda de memoria y memoria compartida permiten ejecutar tareas intensivas de cómputo y memoria con una eficiencia considerable. Es ideal para entrenamientos de redes neuronales profundas, análisis de grandes volúmenes de datos y simulaciones científicas complejas.
+
+    \item La \textbf{NVIDIA T4}, aunque presenta un menor rendimiento en comparación con la A100, ofrece un consumo energético más eficiente y sigue siendo adecuada para tareas como inferencia en aprendizaje automático, visualización de datos y aplicaciones donde el uso de memoria es moderado. Su coste más reducido y menor consumo de energía la convierten en una opción rentable para entornos con restricciones de recursos.
+
+    \item Las diferencias en el \textbf{ancho de banda de memoria} y en la \textbf{cantidad de memoria global} son factores clave que limitan el rendimiento de la T4 en aplicaciones con grandes volúmenes de datos. Sin embargo, en tareas más simples o menos paralelizables, la T4 sigue ofreciendo un rendimiento competitivo.
+
+    \item La arquitectura Ampere de la A100 proporciona mejoras significativas en eficiencia y rendimiento computacional frente a la arquitectura Turing de la T4, particularmente en operaciones de tensor y cálculos matriciales optimizados mediante los Tensor Cores.
+
+\end{itemize}
+
+En conclusión, la elección entre la A100 y la T4 depende del tipo de aplicación y los recursos disponibles. La A100 es claramente superior para tareas de investigación y computación avanzada, mientras que la T4 es una alternativa eficiente y rentable para aplicaciones más livianas o de inferencia. Esta comparación resalta la importancia de seleccionar la GPU adecuada según las necesidades específicas de cada escenario.
+
+\section{Rendimiento de un código CUDA simple}
+
+\subsection{Resultados del Ejercicio 1}
+
+En este apartado se midieron los tiempos de ejecución en CPU y GPU para diferentes tamaños de vector, utilizando 256 threads por bloque y 1 repetición del lazo. La Tabla~\ref{tab:gpu_vs_cpu} presenta los resultados obtenidos.
+
+\begin{table}[H]
+    \centering
+    \caption{Comparación de tiempos entre CPU y GPU para distintos tamaños de vector}
+    \label{tab:gpu_vs_cpu}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Tamaño} & \textbf{CPU} & \textbf{Reserva} & \textbf{H-D} & \textbf{Kernel} & \textbf{D-H} & \textbf{Total GPU} \\
+        \midrule
+        $1 \times 10^6$ (1M) & 4.24 & 0.24 & 0.77 & 0.03 & 1.66 & 2.70 \\
+        $1 \times 10^7$ (10M) & 42.68 & 142.08 & 8.17 & 0.13 & 10.28 & 160.66 \\
+        $1 \times 10^8$ (100M) & 405.33 & 38.62 & 75.34 & 0.92 & 95.85 & 210.73 \\
+        $1 \times 10^9$ (1000M) & 4393.12 & 52.13 & 750.01 & 8.79 & 1993.83 & 2804.76 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión de los resultados}
+Los resultados muestran que:
+\begin{itemize}
+    \item El tiempo de la \textbf{CPU} crece linealmente con el tamaño del vector debido a su ejecución secuencial.
+    \item El tiempo del \textbf{kernel} en GPU es extremadamente bajo, destacando la capacidad de paralelización de la GPU. Por ejemplo, para $10^9$ elementos, el tiempo de ejecución fue de apenas 8.79 ms.
+    \item La \textbf{transferencia de memoria} entre el host y el dispositivo (H-D y D-H) domina el tiempo total de la GPU conforme aumenta el tamaño del vector. Para $10^9$ elementos, estos tiempos suman más de 2 segundos.
+    \item La reserva de memoria en la GPU es constante, salvo pequeñas variaciones en tamaños intermedios.
+\end{itemize}
+
+\subsubsection{Conclusiones}
+La GPU es significativamente más rápida que la CPU en la ejecución de la suma de vectores, especialmente para tamaños grandes. Sin embargo, los tiempos de transferencia de memoria limitan el rendimiento global. En aplicaciones prácticas, se recomienda minimizar las transferencias de datos mediante el uso de \textbf{memoria unificada} o ejecutando más cómputo directamente en la GPU.
+
+\subsection{Resultados del Ejercicio 2}
+
+En este apartado se midieron los tiempos de ejecución del kernel en GPU para un tamaño de vector de $10^9$ elementos, variando el número de threads por bloque. Los resultados obtenidos se muestran en la Tabla~\ref{tab:threads_per_block}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos GPU para diferentes valores de threads por bloque}
+    \label{tab:threads_per_block}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Threads/Bloque} & \textbf{H-D (ms)} & \textbf{Kernel (ms)} & \textbf{D-H (ms)} & \textbf{Total GPU (ms)} \\
+        \midrule
+        32   & 800.57  & 23.19  & 943.05  & 1866.81 \\
+        64   & 732.73  & 11.61  & 2086.00 & 2830.34 \\
+        128  & 749.52  & 8.81   & 1963.14 & 2721.47 \\
+        256  & 750.70  & 8.79   & 1962.52 & 2721.01 \\
+        512  & 763.15  & 8.80   & 1996.99 & 2768.94 \\
+        1024 & 756.56  & 8.86   & 939.57  & 1809.79 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsubsection{Discusión de los resultados}
+
+Al analizar los resultados de la Tabla~\ref{tab:threads_per_block}, se observan las siguientes tendencias:
+
+\begin{itemize}
+    \item El \textbf{tiempo de ejecución del kernel} disminuye drásticamente al aumentar el número de threads por bloque, pasando de 23.19 ms con 32 threads a 8.79 ms con 256 threads.
+    \item A partir de 256 threads, el tiempo del kernel se estabiliza, con valores cercanos a 8.8 ms. Esto sugiere que se alcanza una ocupación óptima de los recursos de la GPU.
+    \item La \textbf{transferencia de memoria (H-D y D-H)} sigue siendo el cuello de botella principal en el tiempo total de la GPU. En particular:
+    \begin{itemize}
+        \item El tiempo de copia Host → Device (H-D) permanece en torno a 750 ms.
+        \item El tiempo de copia Device → Host (D-H) varía, siendo 943 ms para 32 threads y aumentando a 1996 ms para 512 threads.
+    \end{itemize}
+    \item Para 1024 threads, aunque el tiempo del kernel sigue siendo bajo (8.86 ms), el tiempo total de la GPU mejora significativamente debido a una reducción del tiempo de transferencia D-H (939.57 ms).
+\end{itemize}
+
+\subsubsection{Conclusiones}
+
+El número óptimo de threads por bloque en este experimento es de 256 o 512, donde se logra una ejecución eficiente del kernel en GPU. Aumentar los threads más allá de este valor no reduce significativamente el tiempo del kernel, pero puede impactar las transferencias de datos.
+
+Para minimizar el tiempo total de ejecución, es fundamental reducir el impacto de las transferencias de memoria entre la CPU y la GPU, ya que estas etapas dominan el rendimiento global.
+
+\subsection{Resultados del Ejercicio 3}
+
+En este apartado se midieron los tiempos de ejecución del kernel en GPU para un tamaño de vector de $10^8$ elementos y un número fijo de threads por bloque igual a 256. El experimento consistió en variar el número de repeticiones del lazo, manteniendo constantes el tamaño del vector y la configuración de la GPU. Los resultados se muestran en la Tabla~\ref{tab:reps_performance}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos GPU para diferentes valores de repeticiones del lazo}
+    \label{tab:reps_performance}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Reps} & \textbf{CPU (ms)} & \textbf{Reserva (ms)} & \textbf{H-D (ms)} & \textbf{Kernel (ms)} & \textbf{D-H (ms)} & \textbf{Total GPU (ms)} \\
+        \midrule
+        1    & 401.99  & 177.84 & 74.90 & 0.91  & 92.23  & 345.88 \\
+        10   & 3653.77 & 95.86  & 74.10 & 8.81  & 95.75  & 274.52 \\
+        100  & 36165.60 & 187.58 & 70.95 & 87.48 & 95.63  & 441.64 \\
+        500  & 180717.11 & 118.30 & 75.55 & 438.42 & 94.28 & 726.55 \\
+        1000 & 361488.40 & 1.26   & 72.40 & 876.80 & 92.97 & 1043.43 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsubsection{Discusión de los resultados}
+
+La Tabla~\ref{tab:reps_performance} muestra cómo varía el tiempo total de ejecución en la GPU al aumentar el número de repeticiones del lazo:
+
+\begin{itemize}
+    \item El tiempo de ejecución del kernel aumenta de forma lineal con el número de repeticiones. Por ejemplo:
+    \begin{itemize}
+        \item Para 1 repetición, el tiempo del kernel es de 0.91 ms.
+        \item Para 1000 repeticiones, el tiempo del kernel aumenta a 876.80 ms, aproximadamente 1000 veces mayor.
+    \end{itemize}
+
+    \item Los tiempos de reserva de memoria y transferencias de memoria (Host → Device y Device → Host) se mantienen prácticamente constantes para cualquier número de repeticiones. En particular:
+    \begin{itemize}
+        \item Tiempo de copia Host → Device: Alrededor de 74 ms.
+        \item Tiempo de copia Device → Host: Alrededor de 92 ms.
+    \end{itemize}
+
+    \item El tiempo total en CPU crece de manera lineal y es considerablemente mayor que en GPU. Por ejemplo:
+    \begin{itemize}
+        \item Para 1000 repeticiones, el tiempo en CPU es de 361,488.40 ms (aproximadamente 6 minutos).
+        \item El tiempo total en GPU para las mismas repeticiones es de 1043.43 ms, demostrando una diferencia notable de rendimiento.
+    \end{itemize}
+
+\end{itemize}
+
+\subsubsection{Conclusiones}
+
+A partir de los resultados obtenidos, se puede concluir lo siguiente:
+
+\begin{itemize}
+    \item La GPU muestra un rendimiento superior en la ejecución del kernel respecto a la CPU, especialmente cuando el número de repeticiones del lazo es alto.
+    \item Los tiempos de transferencia de memoria entre la CPU y la GPU son constantes y se convierten en un cuello de botella para tareas con pocas repeticiones.
+    \item Para maximizar la eficiencia, es recomendable realizar más trabajo en la GPU (por ejemplo, mediante múltiples repeticiones del lazo) para amortizar el costo de las transferencias de memoria.
+    \item El tiempo de ejecución del kernel escala de manera lineal con el número de repeticiones, confirmando la consistencia del comportamiento del código.
+\end{itemize}
+
+\subsection{Resultados del Ejercicio 4}
+
+En este apartado se midieron de forma independiente los tiempos de ejecución correspondientes a las siguientes etapas: reserva de memoria en la GPU, copia de datos entre el host y la GPU, ejecución del kernel en la GPU y copia de resultados de la GPU al host. Los resultados obtenidos se muestran en la Tabla~\ref{tab:gpu_stage_times}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos de ejecución de cada etapa en la GPU}
+    \label{tab:gpu_stage_times}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Etapa}                       & \textbf{Tiempo (ms)} & \textbf{Observación} \\
+        \midrule
+        Reserva de memoria en GPU            & 1.25                & \textit{cudaMalloc} \\
+        Copia de datos Host $\rightarrow$ GPU & 74.67               & \textit{cudaMemcpy} \\
+        Ejecución del kernel en GPU          & 8.81                & Ejecución de \texttt{vectorAdd} \\
+        Copia de datos GPU $\rightarrow$ Host & 92.33               & \textit{cudaMemcpy} \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión de los resultados}
+
+La Tabla~\ref{tab:gpu_stage_times} muestra el tiempo desglosado de cada etapa durante la ejecución de la suma de vectores en la GPU. Las observaciones más relevantes son:
+
+\begin{itemize}
+    \item El \textbf{tiempo de reserva de memoria} en la GPU (\textit{cudaMalloc}) es muy pequeño (1.25 ms) en comparación con otras etapas.
+    \item Las \textbf{transferencias de memoria} entre el host y la GPU representan un costo significativo:
+    \begin{itemize}
+        \item Copia de datos del host a la GPU: 74.67 ms.
+        \item Copia de datos de la GPU al host: 92.33 ms.
+    \end{itemize}
+    Estas etapas son considerablemente más costosas que la ejecución del kernel.
+    \item La \textbf{ejecución del kernel} en la GPU es muy eficiente, con un tiempo de tan solo 8.81 ms. Esto resalta la capacidad de procesamiento paralelo de la GPU.
+\end{itemize}
+
+\subsection{Conclusiones}
+
+Los resultados muestran que la etapa más eficiente es la \textbf{ejecución del kernel}, mientras que las **transferencias de datos** entre CPU y GPU son el principal cuello de botella. Para aplicaciones más complejas, se podría considerar minimizar estas transferencias mediante estrategias como el uso de \textbf{memoria unificada} o la reutilización de datos en la GPU.
+
+\subsection{Resultados del Ejercicio 5}
+
+En este apartado se modificó el código para utilizar \textbf{memoria unificada} en lugar de realizar transferencias explícitas de datos entre CPU y GPU. La memoria unificada permite que ambos dispositivos compartan un espacio de direcciones común, simplificando la gestión de memoria. Los resultados obtenidos se presentan en la Tabla~\ref{tab:unified_memory}.
+
+\begin{table}[H]
+    \centering
+    \caption{Tiempos obtenidos con memoria unificada}
+    \label{tab:unified_memory}
+    \resizebox{\columnwidth}{!}{
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Operación}           & \textbf{Tiempo (ms)}  & \textbf{Observación} \\
+        \midrule
+        Suma en CPU (10 reps)        & 3374.92              & Tiempo total para la CPU \\
+        Ejecución del kernel en GPU  & 133.19               & Sin transferencias explícitas \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
+
+\subsection{Discusión de los resultados}
+
+Al usar memoria unificada, se pueden observar los siguientes aspectos:
+
+\begin{itemize}
+    \item El \textbf{tiempo de ejecución del kernel} en la GPU fue de 133.19 ms para 10 repeticiones. Esto demuestra la eficiencia del cálculo paralelo en la GPU cuando se realiza una operación simple como la suma de vectores.
+    \item La suma en \textbf{CPU}, en comparación, requirió 3374.92 ms, siendo significativamente más lenta que la GPU.
+    \item Al eliminar las transferencias de memoria explícitas (\textit{Host → Device} y \textit{Device → Host}), se simplificó la ejecución del código y se redujo el tiempo de gestión.
+\end{itemize}
+
+El uso de memoria unificada simplifica el desarrollo de aplicaciones CUDA, especialmente cuando se ejecutan tareas de cómputo con grandes volúmenes de datos. Sin embargo, para aplicaciones donde las transferencias explícitas pueden optimizarse manualmente, podría ser necesario comparar ambos enfoques para encontrar la solución óptima.
+
+\subsection{Conclusiones}
+
+La memoria unificada permite un \textbf{flujo más sencillo} de programación al evitar transferencias manuales de datos. El rendimiento de la GPU sigue siendo notablemente superior al de la CPU, incluso con un manejo simplificado de la memoria. Para operaciones sencillas como la suma de vectores, la GPU demuestra ser una herramienta eficiente y rápida en aplicaciones de cómputo paralelo.
+
+\section{Producto de matrices en CUDA}
+
+El producto de matrices es una operación central en numerosos campos, como el álgebra lineal, la inteligencia artificial y las simulaciones científicas. En este apartado estudiaremos la implementación y optimización de la multiplicación de matrices utilizando CUDA, con un enfoque que permite matrices de tamaños y dimensiones variables. Además, estudiaremos el impacto del tamaño y las dimensiones de las matrices y la configuración de los bloques de hilos en el rendimiento de la GPU, y lo compararemos con el rendimiento de la CPU para el mismo problema.
+
+\subsection{Modificaciones realizadas al código}
+
+El código proporcionado para la realización de este apartado, \textit{matrizMul-simple.cu}, que realiza el producto de dos matrices cuadradas: C = A×B, tomando como parámetros de entrada la dimensión de la matriz (cuadrada) y el número de hilos en cada dimensión del bloque (considerando bloques cuadrados), está incompleto, consistiendo parcialmente este apartado en su compleción y su modificación para permitir la multiplicación de matrices no cuadradas así como el uso de bloques de hilos no cuadrados. 
+
+Así, el primer paso realizado fue completar las partes incompletas del código (marcadas con un \textit{TODO}), las cuales se detallarán a continuación. En primer lugar, debido a que ahora el código debía permitir la ejecución con bloques de dimensiones no cuadradas, ahora estas debían expresarse mediante dos unidades: donde antes estaba tpbdim, que formaba bloques de tamaño \textit{tbbdim} x \textit{tbbdim}, ahora existían \textit{tpbdimX} y \textit{tpbdimY}, que formarían bloques de tamaño \textit{tpbdimX} x \textit{tpbdimY}. Este cambio supone también una modificación en la forma en que se comprueba que el tamaño de los bloques de hilos no supere el máximo permitido de 1024, que ahora se realiza decrementando alternativamente sendas dimensiones hasta que estas formen bloques de un tamaño permitido.
+
+Para permitir la multiplicación de matrices no cuadradas con bloques de hilos también no cuadrados, se modificó la definición de la configuración del Grid y de los bloques de hilos en el código. Anteriormente, los bloques eran cuadrados, con un tamaño definido por una única variable (\textit{tpbdim}), lo cual limitaba la flexibilidad. La nueva implementación utiliza dos variables independientes: \textit{tpbdimX} y \textit{tpbdimY}, que representan las dimensiones \(x\) e \(y\) del bloque de hilos, respectivamente.
+
+Este cambio también afecta la configuración del Grid, donde ahora el número de bloques en cada dimensión se calcula considerando las dimensiones específicas del bloque. En particular, se utiliza la fórmula:
+
+\[
+\text{nBloques por dimensión} = \left\lceil \frac{n}{d} \right\rceil = \frac{n + d - 1}{d}
+\]
+
+donde \(n\) es el tamaño de la matriz en esa dimensión y \(d\) es la dimensión correspondiente del bloque (\textit{tpbdimX} o \textit{tpbdimY}). Esto garantiza que todos los elementos de la matriz sean procesados, incluso si las dimensiones de la matriz no son múltiplos exactos del tamaño del bloque. Este enfoque mejora la adaptabilidad del código a matrices de cualquier tamaño y configuración de bloques, maximizando el uso de los recursos del hardware.
+
+La línea que lanza el kernel CUDA se encontraba incompleta en el código original, por lo que debió ser modificada para incluir en su configuración los argumentos \textit{blocksPerGrid} y \textit{threadsPerBlock}, que calculamos como mencionamos anteriormente, así como los nuevos argumentos necesarios para la propia función de multiplicación, que ahora permite matrices no cuadradas, cuya implementación trataremos a continuación.
+
+La versión inicial del la función que multiplicaba utlizando la GPU asumía matrices cuadradas y utilizaba un único parámetro para definir sus dimensiones, limitando su flexibilidad. En la versión modificada, se introdujeron parámetros adicionales para especificar las dimensiones de las matrices (\texttt{nFilasA}, \texttt{nColumnasA} y \texttt{nColumnasB}), permitiendo multiplicar matrices rectangulares. Además, se calcularon los índices de los hilos de forma bidimensional utilizando \texttt{blockIdx}, \texttt{blockDim} y \texttt{threadIdx}, asignando cada hilo a una posición específica de la matriz de salida. Finalmente, se incluyó un chequeo de límites para garantizar accesos seguros a la memoria, para el caso en que los bloques de hilos no coincidan exactamente con las dimensiones de las matrices y pueda haber secciones de bloques que intenten acceder a direcciones de memoria inválidas. De manera similar, la función de multiplicación en la CPU fue alterada para permitir matrices rectangulares.
+
+Por último, se añadieron algunos fprintf que permitirían el posterior estudio de los rendimientos para diferentes tamaños de matrices y de bloques.
+
+\subsection{Resultados}
+
+Como sabemos, las unidades de procesamiento gráfico o GPUs exhiben una arquitectura que, a diferencia de las CPUs diseñadas para ejecuciones secuenciales rápidas pero con paralelismo limitado, permiten una paralelización masiva pensada específicamente para operaciones repetitivas aplicadas a grandes cantidades de datos, como el producto de matrices. Por ello, cabe esperar que estas presenten un rendimiento superior en dicha operación frente a las CPUs, tendencia que se acentúa a medida que crece el tamaño del problema.
+
+\begin{figure} \centering \includegraphics[width=1\linewidth]{tiempo_vs_talla_E4.png} \caption{Tiempo de ejecución de la CPU y la GPU en función de la talla.} \label{fig:1} \end{figure}
+
+Este comportamiento se refleja claramente en la figura \ref{fig:1}, donde el tiempo de la CPU aumenta notablemente a medida que crece la talla. La curva muestra una curvatura positiva, característica de la naturaleza cúbica ($O(n^3)$) de la complejidad temporal de la multiplicación de matrices. Por el contrario, el tiempo de la GPU, aunque no completamente constante, exhibe una tasa de crecimiento mucho menor debido a su capacidad para procesar de manera simultánea un gran número de elementos.
+
+El rendimiento de la GPU no aplanará completamente la curva de crecimiento para problemas de gran tamaño, ya que su capacidad de paralelización tiene límites impuestos por la cantidad de recursos disponibles, como registros, memoria compartida y multiprocesadores. Sin embargo, su arquitectura masivamente paralela permite una mejora sustancial respecto a las CPUs, logrando resultados más rápidos por varios órdenes de magnitud.
+
+\begin{figure} \centering \includegraphics[width=1\linewidth]{TGPU_para_tallas_grandes.png} \caption{Tiempo de ejecución de la GPU para grandes tallas.} \label{fig:2} \end{figure}
+
+En la figura \ref{fig:2}, que muestra únicamente el tiempo de ejecución en GPU para grandes tallas del problema, se observa que el tiempo de la GPU sigue creciendo conforme aumenta la talla. Aunque el crecimiento es lineal con respecto al número total de elementos, sigue siendo significativamente menor que el observado en CPU. Esto demuestra que, incluso bajo una carga considerable, las GPUs mantienen una ventaja sustancial en problemas como la multiplicación de matrices, que son inherentemente paralelizables.
+
+\subsection{Conclusiones}
+
+A partir de los resultados obtenidos, podemos destacar las siguientes conclusiones:
+
+\begin{itemize} \item La GPU supera significativamente a la CPU en la ejecución de la multiplicación de matrices, especialmente en problemas de gran tamaño. Esto es consecuencia de su arquitectura masivamente paralela y su capacidad para procesar múltiples hilos simultáneamente. 
+
+\item Aunque el tiempo de ejecución de la GPU no se mantiene completamente constante para matrices muy grandes, su tasa de crecimiento es mucho menor en comparación con la CPU, lo que refleja su alta eficiencia en operaciones de cálculo intensivo como el producto de matrices. 
+
+
+\item La GPU ofrece ventajas considerables en problemas que siguen un modelo de procesamiento \textit{SPMD} (Single Program Multiple Data), como el producto de matrices, donde se realizan operaciones repetitivas sobre grandes conjuntos de datos. 
+
+\item A pesar de las mejoras, el rendimiento de la GPU puede verse limitado por factores como la gestión de memoria global y compartida, el tamaño del grid y el número de hilos por bloque. Una optimización adecuada de estas configuraciones podría mejorar aún más su rendimiento. 
+
+\item En términos generales, las GPUs son la opción preferida para aplicaciones que requieren alta capacidad de cómputo y paralelización, como simulaciones científicas, entrenamiento de modelos de aprendizaje profundo y problemas de álgebra lineal. \end{itemize}
+
+En resumen, el análisis confirma la superioridad de las GPUs frente a las CPUs para el producto de matrices, tanto en términos de eficiencia como de escalabilidad, destacando su rol esencial en aplicaciones de alto rendimiento.
+
+
+\end{document}
