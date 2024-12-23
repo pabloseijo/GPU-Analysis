@@ -148,7 +148,7 @@ for (unsigned int i = 0; i < nColumnasA * nColumnasB; ++i) h_B[i] = rand() / (ba
    TSET(tstart);
    clock_gettime( CLOCK_MONOTONIC, &tstart );
    // Multiplica las matrices en el host
-   h_matrizMul(h_A, h_B, h_C, nFilasA, nColumnasA, nColumnasB);
+   //h_matrizMul(h_A, h_B, h_C, nFilasA, nColumnasA, nColumnasB);
    // Fin tiempo
    TSET( tend );
    tint = TINT(tstart, tend);
